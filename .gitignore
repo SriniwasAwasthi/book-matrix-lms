@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Database backups and temp files
+database/backups/
+database/*.bak
+*.bak
+*.db-journal
+*.db-shm
+*.db-wal
+
+# Log files
+*.log
+scratch/*.log
+chrome_debug_test.log
+chrome_test.log
+
+# VS Code directory
+.vscode/

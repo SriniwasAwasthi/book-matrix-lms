@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="theme.js?v=20260531_edge_fixed"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Book Matrix</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=20260531_edge_fixed">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="brand">BOOK MATRIX</div>
+
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-th-large"></i> Dashboard</a></li>
+            <li class="nav-item"><a href="books.html" class="nav-link"><i class="fas fa-book"></i> Books</a></li>
+            <li class="nav-item"><a href="users.html" class="nav-link"><i class="fas fa-users"></i> Members</a></li>
+            <li class="nav-item"><a href="issue_return.html" class="nav-link"><i class="fas fa-exchange-alt"></i> Borrowed Books</a></li>
+            <li class="nav-item"><a href="categories.html" class="nav-link"><i class="fas fa-tags"></i> Categories</a></li>
+            <li class="nav-item"><a href="authors.html" class="nav-link"><i class="fas fa-feather"></i> Authors</a></li>
+            <li class="nav-item"><a href="publishers.html" class="nav-link"><i class="fas fa-building"></i> Publishers</a></li>
+            <li class="nav-item"><a href="transactions.html" class="nav-link"><i class="fas fa-chart-bar"></i> Reports</a></li>
+            <li class="nav-item"><a href="messages.html" class="nav-link"><i class="fas fa-envelope"></i> Messages</a></li>
+            <li class="nav-item"><a href="settings.html" class="nav-link active" aria-current="page"><i class="fas fa-cog"></i> Settings</a></li>
+        </ul>
+
+        <div class="profile-mini">
+            <div class="profile-avatar">
+                <img id="sidebarAdminAvatar" src="https://ui-avatars.com/api/?name=Admin+User&background=9d50bb&color=fff" alt="Administrator avatar">
+            </div>
+            <div class="profile-info">
+                <h4 id="sidebarAdminName">Admin User</h4>
+                <p><i class="fas fa-circle" style="font-size: 8px;"></i> Online</p>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content settings-page" id="main-content">
+        <header class="settings-page-header">
+            <h1 class="settings-page-title">System Settings</h1>
+            <div class="settings-header-actions">
+                <button type="button" class="action-btn" id="settingsThemeToggle" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle Theme">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="settings-btn-save" id="saveSettingsBtn" aria-label="Save changes">
+                    <i class="fas fa-save" aria-hidden="true"></i> Save Changes
+                </button>
+            </div>
+        </header>
+
+        <div class="settings-layout">
+            <nav class="settings-left-menu" role="tablist" aria-label="Settings sections">
+                <button type="button" class="settings-menu-item active" role="tab" data-tab="profile" aria-selected="true" aria-controls="profile">
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                    <div class="settings-menu-text">
+                        <strong>Profile Settings</strong>
+                        <span>Manage administrator profile information.</span>
+                    </div>
+                </button>
+                <button type="button" class="settings-menu-item" role="tab" data-tab="security" aria-selected="false" aria-controls="security">
+                    <i class="fas fa-lock" aria-hidden="true"></i>
+                    <div class="settings-menu-text">
+                        <strong>Security &amp; Privacy</strong>
+                        <span>Control password, authentication and security settings.</span>
+                    </div>
+                </button>
+                <button type="button" class="settings-menu-item" role="tab" data-tab="notifications" aria-selected="false" aria-controls="notifications">
+                    <i class="fas fa-bell" aria-hidden="true"></i>
+                    <div class="settings-menu-text">
+                        <strong>Notifications</strong>
+                        <span>Manage email and system notifications.</span>
+                    </div>
+                </button>
+                <button type="button" class="settings-menu-item" role="tab" data-tab="database" aria-selected="false" aria-controls="database">
+                    <i class="fas fa-database" aria-hidden="true"></i>
+                    <div class="settings-menu-text">
+                        <strong>Database Management</strong>
+                        <span>Database backup and restore settings.</span>
+                    </div>
+                </button>
+                <button type="button" class="settings-menu-item" role="tab" data-tab="customization" aria-selected="false" aria-controls="customization">
+                    <i class="fas fa-palette" aria-hidden="true"></i>
+                    <div class="settings-menu-text">
+                        <strong>UI Customization</strong>
+                        <span>Customize theme, visual effects, and accent colors.</span>
+                    </div>
+                </button>
+            </nav>
+
+            <div class="settings-panel-area">
+
+                <!-- Profile Settings -->
+                <section id="profile" class="settings-content active" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="settings-section">
+                        <h2 class="settings-section-title"><i class="fas fa-image"></i> Admin Avatar</h2>
+                        <div class="settings-avatar-section">
+                            <div class="settings-avatar-display" id="avatarDisplay" role="img" aria-label="Profile photo preview">
+                                <i class="fas fa-user" aria-hidden="true"></i>
+                            </div>
+                            <p class="text-muted" style="font-size: 13px;">Recommended size: 256x256px. Max 2MB. &bull; Live preview before save</p>
+                            <div class="settings-avatar-controls">
+                                <button type="button" class="settings-btn settings-btn-primary" onclick="document.getElementById('avatarInput').click()">
+                                    <i class="fas fa-upload"></i> Upload Avatar
+                                </button>
+                                <button type="button" class="settings-btn settings-btn-danger" onclick="removeAvatar()">
+                                    <i class="fas fa-trash"></i> Remove Avatar
+                                </button>
+                            </div>
+                            <input type="file" id="avatarInput" accept="image/png,image/jpeg" hidden aria-label="Upload profile photo" onchange="previewAvatar(event)">
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h2 class="settings-section-title"><i class="fas fa-user-circle"></i> Personal Information</h2>
+                        <div class="settings-form-row">
+                            <div class="settings-form-group">
+                                <label class="settings-label required" for="fullName">Full Name</label>
+                                <input type="text" class="settings-input settings-track-change" id="fullName" value="Admin User" autocomplete="name" required>
+                                <div class="settings-field-error" id="fullNameError" role="alert"></div>
+                            </div>
+                            <div class="settings-form-group">
+                                <label class="settings-label required" for="username">Username</label>
+                                <input type="text" class="settings-input settings-track-change" id="username" value="admin" autocomplete="username" required>
+                                <div class="settings-field-error" id="usernameError" role="alert"></div>
+                            </div>
+                        </div>
+                        <div class="settings-form-row">
+                            <div class="settings-form-group">
+                                <label class="settings-label required" for="email">Email Address</label>
+                                <input type="email" class="settings-input settings-track-change" id="email" value="admin@booklibrary.com" autocomplete="email" required>
+                                <div class="settings-field-error" id="emailError" role="alert"></div>
+                            </div>
+                            <div class="settings-form-group">
+                                <label class="settings-label" for="phone">Phone Number</label>
+                                <input type="tel" class="settings-input settings-track-change" id="phone" value="+1 (555) 123-4567" autocomplete="tel">
+                                <div class="settings-field-error" id="phoneError" role="alert"></div>
+                            </div>
+                        </div>
+                        <div class="settings-form-row">
+                            <div class="settings-form-group">
+                                <label class="settings-label required" for="accountType">Account Type</label>
+                                <select class="settings-select settings-track-change" id="accountType" onchange="toggleIdFields()">
+                                    <option value="Admin" selected>Admin</option>
+                                    <option value="Librarian">Librarian</option>
+                                    <option value="Teacher">Teacher</option>
+                                    <option value="Student">Student</option>
+                                </select>
+                            </div>
+                            <div class="settings-form-group">
+                                <label class="settings-label" for="designation">Designation</label>
+                                <input type="text" class="settings-input settings-track-change" id="designation" value="Library Administrator">
+                            </div>
+                        </div>
+                        <div class="settings-form-row">
+                            <div class="settings-form-group" id="employeeIdGroup">
+                                <label class="settings-label" for="employeeId">Employee ID</label>
+                                <input type="text" class="settings-input settings-track-change" id="employeeId" value="EMP-001">
+                                <div class="settings-field-error" id="employeeIdError" role="alert"></div>
+                            </div>
+                            <div class="settings-form-group" id="studentIdGroup" style="display:none;">
+                                <label class="settings-label" for="studentId">Student ID</label>
+                                <input type="text" class="settings-input settings-track-change" id="studentId" value="">
+                                <div class="settings-field-error" id="studentIdError" role="alert"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h2 class="settings-section-title"><i class="fas fa-building"></i> Library Information</h2>
+                        <div class="settings-form-row full">
+                            <div class="settings-form-group">
+                                <label class="settings-label required" for="libraryName">Library Name</label>
+                                <input type="text" class="settings-input settings-track-change" id="libraryName" value="Central Public Library" required>
+                            </div>
+                        </div>
+                        <div class="settings-form-row">
+                            <div class="settings-form-group">
+                                <label class="settings-label" for="libraryCode">Library Code</label>
+                                <input type="text" class="settings-input settings-track-change" id="libraryCode" value="LIB-001">
+                            </div>
+                            <div class="settings-form-group">
+                                <label class="settings-label required" for="institutionName">Institution Name</label>
+                                <input type="text" class="settings-input settings-track-change" id="institutionName" value="City Education Board" required>
+                            </div>
+                        </div>
+                        <div class="settings-form-row full">
+                            <div class="settings-form-group">
+                                <label class="settings-label required" for="address">Address</label>
+                                <input type="text" class="settings-input settings-track-change" id="address" value="123 Library Avenue" required>
+                            </div>
+                        </div>
+                        <div class="settings-form-row">
+                            <div class="settings-form-group">
+                                <label class="settings-label required" for="city">City</label>
+                                <input type="text" class="settings-input settings-track-change" id="city" value="New York" required>
+                            </div>
+                            <div class="settings-form-group">
+                                <label class="settings-label required" for="state">State</label>
+                                <input type="text" class="settings-input settings-track-change" id="state" value="NY" required>
+                            </div>
+                        </div>
+                        <div class="settings-form-row">
+                            <div class="settings-form-group">
+                                <label class="settings-label required" for="country">Country</label>
+                                <input type="text" class="settings-input settings-track-change" id="country" value="United States" required>
+                            </div>
+                            <div class="settings-form-group">
+                                <label class="settings-label" for="zipCode">ZIP Code</label>
+                                <input type="text" class="settings-input settings-track-change" id="zipCode" value="10001">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Security & Privacy -->
+                <section id="security" class="settings-content" role="tabpanel" hidden>
+                    <div class="settings-section">
+                        <h2 class="settings-section-title"><i class="fas fa-key"></i> Password Management</h2>
+                        <div class="settings-form-group">
+                            <label class="settings-label required" for="currentPassword">Current Password</label>
+                            <div class="settings-password-wrap">
+                                <input type="password" class="settings-input" id="currentPassword" autocomplete="current-password">
+                                <button type="button" class="settings-password-toggle" aria-label="Show password" onclick="togglePasswordVisibility('currentPassword', this)"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="settings-form-group">
+                            <label class="settings-label required" for="newPassword">New Password</label>
+                            <div class="settings-password-wrap">
+                                <input type="password" class="settings-input" id="newPassword" autocomplete="new-password">
+                                <button type="button" class="settings-password-toggle" aria-label="Show password" onclick="togglePasswordVisibility('newPassword', this)"><i class="fas fa-eye"></i></button>
+                            </div>
+                            <div class="settings-strength-meter" aria-hidden="true"><div class="settings-strength-bar" id="strengthBar"></div></div>
+                            <div class="settings-toggle-desc" id="strengthText">Enter a password</div>
+                        </div>
+                        <div class="settings-form-group">
+                            <label class="settings-label required" for="confirmPassword">Confirm Password</label>
+                            <div class="settings-password-wrap">
+                                <input type="password" class="settings-input" id="confirmPassword" autocomplete="new-password">
+                                <button type="button" class="settings-password-toggle" aria-label="Show password" onclick="togglePasswordVisibility('confirmPassword', this)"><i class="fas fa-eye"></i></button>
+                            </div>
+                            <div class="settings-field-error" id="confirmPasswordError" role="alert"></div>
+                        </div>
+                        <button type="button" class="settings-btn settings-btn-primary" onclick="changePassword()"><i class="fas fa-lock"></i> Update Password</button>
+                    </div>
+
+                    <div class="settings-section">
+                        <h2 class="settings-section-title"><i class="fas fa-shield-alt"></i> Two-Factor Authentication</h2>
+                        <div class="settings-toggle-item">
+                            <div>
+                                <div class="settings-toggle-title">Enable Email OTP</div>
+                                <div class="settings-toggle-desc">Receive one-time password via email</div>
+                            </div>
+                            <label class="settings-switch">
+                                <input type="checkbox" id="emailOtp" class="settings-track-change" checked>
+                                <span class="settings-switch-slider"></span>
+                            </label>
+                        </div>
+                        <div class="settings-toggle-item">
+                            <div>
+                                <div class="settings-toggle-title">Enable Authenticator App</div>
+                                <div class="settings-toggle-desc">Use Google Authenticator or similar apps</div>
+                            </div>
+                            <label class="settings-switch">
+                                <input type="checkbox" id="authenticatorApp" class="settings-track-change">
+                                <span class="settings-switch-slider"></span>
+                            </label>
+                        </div>
+                        <div class="settings-toggle-item">
+                            <div>
+                                <div class="settings-toggle-title">Backup Recovery Codes</div>
+                                <div class="settings-toggle-desc">Generate backup codes for account recovery</div>
+                            </div>
+                            <button type="button" class="settings-btn settings-btn-secondary" onclick="generateRecoveryCodes()"><i class="fas fa-refresh"></i> Generate Codes</button>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h2 class="settings-section-title"><i class="fas fa-sign-in-alt"></i> Login Security</h2>
+                        <div class="settings-form-row">
+                            <div class="settings-form-group">
+                                <label class="settings-label" for="sessionTimeout">Session Timeout (minutes)</label>
+                                <input type="number" class="settings-input settings-track-change" id="sessionTimeout" value="30" min="5" max="480">
+                            </div>
+                            <div class="settings-form-group">
+                                <label class="settings-label" for="maxLoginAttempts">Maximum Login Attempts</label>
+                                <input type="number" class="settings-input settings-track-change" id="maxLoginAttempts" value="5" min="1" max="10">
+                            </div>
+                        </div>
+                        <div class="settings-form-row">
+                            <div class="settings-form-group">
+                                <label class="settings-label" for="lockDuration">Account Lock Duration (minutes)</label>
+                                <input type="number" class="settings-input settings-track-change" id="lockDuration" value="15" min="5" max="120">
+                            </div>
+                        </div>
+                        <div class="settings-toggle-item">
+                            <div>
+                                <div class="settings-toggle-title">Auto Logout</div>
+                                <div class="settings-toggle-desc">Automatically logout when session expires</div>
+                            </div>
+                            <label class="settings-switch">
+                                <input type="checkbox" id="autoLogout" class="settings-track-change" checked>
+                                <span class="settings-switch-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h2 class="settings-section-title"><i class="fas fa-laptop"></i> Device Management</h2>
+                        <div class="settings-table-wrap">
+                            <table class="settings-table">
+                                <caption class="sr-only">Active login sessions</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Device Name</th>
+                                        <th scope="col">Browser</th>
+                                        <th scope="col">Operating System</th>
+                                        <th scope="col">Last Login Time</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="settings-session-current" data-session-id="1" data-current="true">
+                                        <td><i class="fas fa-laptop"></i> Desktop PC <span class="settings-badge" style="margin-left:8px;">Current</span></td>
+                                        <td>Chrome 124</td>
+                                        <td>Windows 11</td>
+                                        <td>Active now</td>
+                                        <td><button type="button" class="settings-btn settings-btn-danger" onclick="logoutCurrentSession()"><i class="fas fa-sign-out-alt"></i> Logout</button></td>
+                                    </tr>
+                                    <tr data-session-id="2">
+                                        <td><i class="fas fa-mobile-alt"></i> Mobile</td>
+                                        <td>Safari Mobile</td>
+                                        <td>iOS 17</td>
+                                        <td>2 hours ago</td>
+                                        <td><button type="button" class="settings-btn settings-btn-danger" onclick="logoutDevice('2')"><i class="fas fa-sign-out-alt"></i> Logout</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <button type="button" class="settings-btn settings-btn-danger" style="margin-top:16px;" onclick="logoutAllDevices()"><i class="fas fa-sign-out-alt"></i> Logout Other Devices</button>
+                    </div>
+                </section>
+
+                <!-- Notifications -->
+                <section id="notifications" class="settings-content" role="tabpanel" hidden>
+                    <div class="settings-section">
+                        <h2 class="settings-section-title"><i class="fas fa-envelope"></i> Email Notifications</h2>
+                        <div class="settings-toggle-item">
+                            <div><div class="settings-toggle-title">New Member Registration</div><div class="settings-toggle-desc">Notify when new members join the library</div></div>
+                            <label class="settings-switch"><input type="checkbox" data-notify="newMember" class="settings-track-change" checked><span class="settings-switch-slider"></span></label>
+                        </div>
+                        <div class="settings-toggle-item">
+                            <div><div class="settings-toggle-title">Book Issue Notification</div><div class="settings-toggle-desc">Receive notifications for issued books</div></div>
+                            <label class="settings-switch"><input type="checkbox" data-notify="bookIssue" class="settings-track-change" checked><span class="settings-switch-slider"></span></label>
+                        </div>
+                        <div class="settings-toggle-item">
+                            <div><div class="settings-toggle-title">Book Return Notification</div><div class="settings-toggle-desc">Get notified when books are returned</div></div>
+                            <label class="settings-switch"><input type="checkbox" data-notify="bookReturn" class="settings-track-change" checked><span class="settings-switch-slider"></span></label>
+                        </div>
+                        <div class="settings-toggle-item">
+                            <div><div class="settings-toggle-title">Overdue Book Alerts</div><div class="settings-toggle-desc">Alert for overdue books that need attention</div></div>
+                            <label class="settings-switch"><input type="checkbox" data-notify="overdue" class="settings-track-change" checked><span class="settings-switch-slider"></span></label>
+                        </div>
+                        <div class="settings-toggle-item">
+                            <div><div class="settings-toggle-title">Fine Collection Alerts</div><div class="settings-toggle-desc">Notify about pending fine collections</div></div>
+                            <label class="settings-switch"><input type="checkbox" data-notify="fine" class="settings-track-change" checked><span class="settings-switch-slider"></span></label>
+                        </div>
+                        <div class="settings-toggle-item">
+                            <div><div class="settings-toggle-title">New Admin Creation</div><div class="settings-toggle-desc">Get notified when new admin accounts are created</div></div>
+                            <label class="settings-switch"><input type="checkbox" data-notify="newAdmin" class="settings-track-change" checked><span class="settings-switch-slider"></span></label>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h2 class="settings-section-title"><i class="fas fa-bell"></i> System Notifications</h2>
+                        <div class="settings-toggle-item">
+                            <div><div class="settings-toggle-title">Dashboard Alerts</div><div class="settings-toggle-desc">Important dashboard activity alerts</div></div>
+                            <label class="settings-switch"><input type="checkbox" data-notify="dashboard" class="settings-track-change" checked><span class="settings-switch-slider"></span></label>
+                        </div>
+                        <div class="settings-toggle-item">
+                            <div><div class="settings-toggle-title">Maintenance Alerts</div><div class="settings-toggle-desc">System maintenance and updates</div></div>
+                            <label class="settings-switch"><input type="checkbox" data-notify="maintenance" class="settings-track-change" checked><span class="settings-switch-slider"></span></label>
+                        </div>
+                        <div class="settings-toggle-item">
+                            <div><div class="settings-toggle-title">Database Alerts</div><div class="settings-toggle-desc">Database performance and backup alerts</div></div>
+                            <label class="settings-switch"><input type="checkbox" data-notify="database" class="settings-track-change" checked><span class="settings-switch-slider"></span></label>
+                        </div>
+                        <div class="settings-toggle-item">
+                            <div><div class="settings-toggle-title">Security Alerts</div><div class="settings-toggle-desc">Security incidents and suspicious activities</div></div>
+                            <label class="settings-switch"><input type="checkbox" data-notify="security" class="settings-track-change" checked><span class="settings-switch-slider"></span></label>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h2 class="settings-section-title"><i class="fas fa-sliders-h"></i> Notification Preferences</h2>
+                        <p class="settings-toggle-desc" style="margin-bottom:14px;">Select one or more notification channels (multi-select)</p>
+                        <div class="settings-channel-grid">
+                            <label class="settings-channel-option"><input type="checkbox" id="channelEmail" class="settings-track-change" checked> Email</label>
+                            <label class="settings-channel-option"><input type="checkbox" id="channelSms" class="settings-track-change" checked> SMS</label>
+                            <label class="settings-channel-option"><input type="checkbox" id="channelInApp" class="settings-track-change" checked> In-App Notification</label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Database Management -->
+                <section id="database" class="settings-content" role="tabpanel" hidden>
+                    <div class="settings-section">
+                        <h2 class="settings-section-title"><i class="fas fa-database"></i> Database Status</h2>
+                        <div class="settings-stat-grid">
+                            <div class="settings-stat-card">
+                                <div class="settings-stat-label">Database Name</div>
+                                <div class="settings-stat-value" id="dbName" style="font-size:16px;">library.db</div>
+                                <div class="settings-stat-meta">SQLite Database</div>
+                            </div>
+                            <div class="settings-stat-card">
+                                <div class="settings-stat-label">Database Size</div>
+                                <div class="settings-stat-value" id="dbSize">—</div>
+                                <div class="settings-stat-meta">Total file size</div>
+                            </div>
+                            <div class="settings-stat-card">
+                                <div class="settings-stat-label">Total Records</div>
+                                <div class="settings-stat-value" id="dbRecords">—</div>
+                                <div class="settings-stat-meta">Books + Users + Transactions</div>
+                            </div>
+                            <div class="settings-stat-card">
+                                <div class="settings-stat-label">Last Backup Date</div>
+                                <div class="settings-stat-value" id="dbLastBackup" style="font-size:16px;">—</div>
+                                <div class="settings-stat-meta">Most recent backup</div>
+                            </div>
+                            <div class="settings-stat-card">
+                                <div class="settings-stat-label">Database Health Status</div>
+                                <div class="settings-stat-value" id="dbHealth"><span class="settings-badge"><i class="fas fa-check-circle"></i> Healthy</span></div>
+                                <div class="settings-stat-meta">All systems operational</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h2 class="settings-section-title"><i class="fas fa-save"></i> Backup Management</h2>
+                        <p class="settings-toggle-desc" style="margin-bottom:16px;">Create and manage database backups. Choose your backup frequency below.</p>
+                        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px;">
+                            <button type="button" class="settings-btn settings-btn-primary" onclick="createBackup()"><i class="fas fa-floppy-disk"></i> Create Backup</button>
+                            <button type="button" class="settings-btn settings-btn-secondary" onclick="downloadBackup()"><i class="fas fa-download"></i> Download Backup</button>
+                            <button type="button" class="settings-btn settings-btn-secondary" onclick="scheduleBackup()"><i class="fas fa-calendar-alt"></i> Schedule Backup</button>
+                        </div>
+                        <div class="settings-form-group">
+                            <label class="settings-label" for="backupSchedule">Automatic Backup Schedule</label>
+                            <select class="settings-select settings-track-change" id="backupSchedule">
+                                <option value="none">No automatic backup</option>
+                                <option value="daily" selected>Daily Backup (11:00 PM)</option>
+                                <option value="weekly">Weekly Backup (Sundays at 2:00 AM)</option>
+                                <option value="monthly">Monthly Backup (1st of month at 3:00 AM)</option>
+                            </select>
+                        </div>
+                        <div class="settings-form-group" style="margin-top: 20px;">
+                            <label class="settings-label">Backup Archives</label>
+                            <div class="settings-table-wrap">
+                                <table class="settings-table" id="backupsHistoryTable">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Filename</th>
+                                            <th scope="col">Type</th>
+                                            <th scope="col">Size</th>
+                                            <th scope="col">Date Created</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="backupsHistoryBody">
+                                        <tr><td colspan="5" style="text-align:center;color:var(--text-secondary);">Loading backups list...</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h2 class="settings-section-title"><i class="fas fa-redo"></i> Restore Database</h2>
+                        <div class="settings-form-group">
+                            <label class="settings-label">Upload Backup File</label>
+                            <div class="settings-upload-zone" id="restoreUploadZone" onclick="document.getElementById('restoreFile').click()" role="button" tabindex="0" aria-label="Upload backup file">
+                                <i class="fas fa-cloud-upload-alt" style="font-size:32px;color:var(--neon-blue);margin-bottom:10px;"></i>
+                                <p class="settings-toggle-desc">Drag and drop your backup file here or click to browse</p>
+                                <p class="settings-toggle-desc" style="font-size:11px;">Supported formats: SQL, ZIP</p>
+                                <p id="restoreFileName" style="margin-top:10px;color:var(--neon-blue);font-size:13px;"></p>
+                            </div>
+                            <input type="file" id="restoreFile" hidden accept=".sql,.zip" aria-label="Select backup file" onchange="prepareRestore(event)">
+                        </div>
+                        <button type="button" class="settings-btn settings-btn-danger" onclick="restoreDatabase()"><i class="fas fa-exclamation-triangle"></i> Restore from Backup</button>
+                    </div>
+
+                    <div class="settings-section">
+                        <h2 class="settings-section-title"><i class="fas fa-tools"></i> Database Maintenance</h2>
+                        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;">
+                            <button type="button" class="settings-btn settings-btn-primary" onclick="optimizeDatabase()"><i class="fas fa-rocket"></i> Optimize Database</button>
+                            <button type="button" class="settings-btn settings-btn-primary" onclick="clearCache()"><i class="fas fa-trash"></i> Clear Cache</button>
+                            <button type="button" class="settings-btn settings-btn-primary" onclick="repairDatabase()"><i class="fas fa-wrench"></i> Repair Database</button>
+                            <button type="button" class="settings-btn settings-btn-primary" onclick="rebuildIndexes()"><i class="fas fa-sync"></i> Rebuild Indexes</button>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h2 class="settings-section-title"><i class="fas fa-history"></i> Audit Logs</h2>
+                        <div class="settings-audit-toolbar">
+                            <input type="search" class="settings-input" id="auditSearch" placeholder="Search audit logs..." aria-label="Search audit logs">
+                            <select class="settings-select" id="auditModuleFilter" aria-label="Filter by module">
+                                <option value="all">All Modules</option>
+                                <option value="Database">Database</option>
+                                <option value="Books">Books</option>
+                                <option value="Members">Members</option>
+                                <option value="Security">Security</option>
+                                <option value="Settings">Settings</option>
+                                <option value="Reports">Reports</option>
+                                <option value="System">System</option>
+                                <option value="Borrowed Books">Borrowed Books</option>
+                            </select>
+                            <select class="settings-select" id="auditStatusFilter" aria-label="Filter by status">
+                                <option value="all">All Status</option>
+                                <option value="Success">Success</option>
+                                <option value="Failed">Failed</option>
+                                <option value="Warning">Warning</option>
+                            </select>
+                            <button type="button" class="settings-btn settings-btn-secondary" id="auditSearchBtn"><i class="fas fa-search"></i> Search</button>
+                            <button type="button" class="settings-btn settings-btn-secondary" onclick="exportAuditLogs()"><i class="fas fa-download"></i> Export CSV</button>
+                        </div>
+                        <div class="settings-table-wrap">
+                            <table class="settings-table">
+                                <caption class="sr-only">System audit log entries</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Timestamp</th>
+                                        <th scope="col">User</th>
+                                        <th scope="col">Action</th>
+                                        <th scope="col">Module</th>
+                                        <th scope="col">IP Address</th>
+                                        <th scope="col">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="auditLogsBody"></tbody>
+                            </table>
+                        </div>
+                        <div class="settings-pagination">
+                            <button type="button" class="settings-btn settings-btn-secondary" id="auditPrevBtn" aria-label="Previous page">&lt; Previous</button>
+                            <span id="auditPageInfo" style="color:var(--text-secondary);font-size:13px;">Page 1 of 1</span>
+                            <button type="button" class="settings-btn settings-btn-secondary" id="auditNextBtn" aria-label="Next page">Next &gt;</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- UI Customization -->
+                <section id="customization" class="settings-content" role="tabpanel" hidden>
+                    <div class="settings-section">
+                        <h2 class="settings-section-title"><i class="fas fa-paint-brush"></i> Visual Theme</h2>
+                        <p class="settings-toggle-desc" style="margin-bottom:16px;">Customize the visual styling of your Book Matrix Dashboard.</p>
+                        
+                        <div class="settings-form-group">
+                            <label class="settings-label">Accent Color Theme</label>
+                            <div style="display:flex; gap:12px; margin-top:8px;">
+                                <button type="button" class="settings-btn color-dot active" style="background:#00d2ff; width:36px; height:36px; border-radius:50%; border:2px solid white; cursor:pointer;" data-color="blue" title="Neon Blue"></button>
+                                <button type="button" class="settings-btn color-dot" style="background:#9d50bb; width:36px; height:36px; border-radius:50%; border:2px solid transparent; cursor:pointer;" data-color="purple" title="Neon Purple"></button>
+                                <button type="button" class="settings-btn color-dot" style="background:#00ff87; width:36px; height:36px; border-radius:50%; border:2px solid transparent; cursor:pointer;" data-color="emerald" title="Emerald Green"></button>
+                                <button type="button" class="settings-btn color-dot" style="background:#ff416c; width:36px; height:36px; border-radius:50%; border:2px solid transparent; cursor:pointer;" data-color="rose" title="Rose Gold"></button>
+                                <button type="button" class="settings-btn color-dot" style="background:#ff8c00; width:36px; height:36px; border-radius:50%; border:2px solid transparent; cursor:pointer;" data-color="orange" title="Sunset Orange"></button>
+                            </div>
+                        </div>
+
+                        <div class="settings-toggle-item" style="margin-top:20px;">
+                            <div>
+                                <div class="settings-toggle-title">Glassmorphism Visual Styling</div>
+                                <div class="settings-toggle-desc">Enable smooth, semi-transparent frosted-glass styling elements across the interface.</div>
+                            </div>
+                            <label class="settings-switch">
+                                <input type="checkbox" id="glassmorphism" class="settings-track-change" checked>
+                                <span class="settings-switch-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h2 class="settings-section-title"><i class="fas fa-text-height"></i> Typography & Layout</h2>
+                        <div class="settings-form-row">
+                            <div class="settings-form-group">
+                                <label class="settings-label" for="fontFamily">Primary Font Family</label>
+                                <select class="settings-select settings-track-change" id="fontFamily">
+                                    <option value="cinzel" selected>Cinzel (Classic / Aesthetic)</option>
+                                    <option value="inter">Inter (Modern / Minimalist)</option>
+                                    <option value="outfit">Outfit (Clean / Premium)</option>
+                                    <option value="montserrat">Montserrat (Bold / Modern)</option>
+                                    <option value="roboto">Roboto (Browser Standard)</option>
+                                </select>
+                            </div>
+                            <div class="settings-form-group">
+                                <label class="settings-label" for="fontSize">Base Font Size</label>
+                                <select class="settings-select settings-track-change" id="fontSize">
+                                    <option value="12px">12px (Compact)</option>
+                                    <option value="14px" selected>14px (Normal)</option>
+                                    <option value="16px">16px (Readable)</option>
+                                    <option value="18px">18px (Large)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="settings-form-row">
+                            <div class="settings-form-group">
+                                <label class="settings-label" for="fontWeight">Base Font Weight</label>
+                                <select class="settings-select settings-track-change" id="fontWeight">
+                                    <option value="300">Light (300)</option>
+                                    <option value="400" selected>Regular (400)</option>
+                                    <option value="600">Semi-Bold (600)</option>
+                                    <option value="700">Bold (700)</option>
+                                </select>
+                            </div>
+                            <div class="settings-form-group">
+                                <label class="settings-label" for="letterSpacing">Letter Spacing</label>
+                                <select class="settings-select settings-track-change" id="letterSpacing">
+                                    <option value="-0.5px">Tight (-0.5px)</option>
+                                    <option value="0px" selected>Normal (0px)</option>
+                                    <option value="0.5px">Wide (0.5px)</option>
+                                    <option value="1px">Extra Wide (1px)</option>
+                                    <option value="2px">Spacious (2px)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="settings-form-row">
+                            <div class="settings-form-group">
+                                <label class="settings-label" for="lineHeight">Line Height</label>
+                                <select class="settings-select settings-track-change" id="lineHeight">
+                                    <option value="1.2">Tight (1.2)</option>
+                                    <option value="1.4">Comfortable (1.4)</option>
+                                    <option value="1.6" selected>Spacious (1.6)</option>
+                                    <option value="1.8">Relaxed (1.8)</option>
+                                </select>
+                            </div>
+                            <div class="settings-form-group">
+                                <label class="settings-label" for="uiDensity">Interface Density</label>
+                                <select class="settings-select settings-track-change" id="uiDensity">
+                                    <option value="comfortable" selected>Comfortable</option>
+                                    <option value="compact">Compact (More elements per screen)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="settings-form-row">
+                            <div class="settings-form-group">
+                                <label class="settings-label" for="visualMode">Theme Visual Mode</label>
+                                <select class="settings-select settings-track-change" id="visualMode">
+                                    <option value="dark" selected>Dark Mode (Default)</option>
+                                    <option value="light">Light Mode</option>
+                                    <option value="system">System Mode</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="settings-toggle-item" style="margin-top:16px;">
+                            <div>
+                                <div class="settings-toggle-title">Micro-Animations & Transitions</div>
+                                <div class="settings-toggle-desc">Enable subtle motion visual feedback for buttons, links, and hovering.</div>
+                            </div>
+                            <label class="settings-switch">
+                                <input type="checkbox" id="animationsEnabled" class="settings-track-change" checked>
+                                <span class="settings-switch-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h2 class="settings-section-title"><i class="fas fa-eye"></i> Design Preview</h2>
+                        <div id="uiPreviewCard" style="padding:20px; border-radius:12px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); transition:all 0.3s ease;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                                <h4 style="margin:0; font-family:'Cinzel', serif; color:#00d2ff; letter-spacing:1px;" id="previewHeading">Book Matrix Central</h4>
+                                <span style="font-size:11px; padding:2px 8px; border-radius:10px; background:rgba(0,210,255,0.15); color:#00d2ff; font-weight:600;" id="previewBadge">Aesthetic Active</span>
+                            </div>
+                            <p style="margin:0 0 12px 0; font-size:13px; color:var(--text-secondary); line-height:1.5;">This live preview illustrates how your font and style configurations will adapt across the central database management console views.</p>
+                            <button type="button" class="settings-btn settings-btn-primary" style="font-size:12px; padding:6px 12px;"><i class="fas fa-sparkles"></i> Demo Click</button>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <div id="cropperModal" class="settings-modal" aria-hidden="true" role="dialog" aria-labelledby="cropperModalTitle">
+        <div class="settings-modal-content" style="max-width: 500px;">
+            <div class="settings-modal-header">
+                <span id="cropperModalTitle"><i class="fas fa-crop-alt"></i> Crop Profile Avatar</span>
+                <button type="button" class="settings-modal-close" onclick="closeSettingsModal('cropperModal')" aria-label="Close dialog">&times;</button>
+            </div>
+            <p class="settings-toggle-desc" style="margin-bottom: 16px;">Zoom, rotate, and position your photo to crop it to a perfect square before saving.</p>
+            
+            <div style="width: 100%; height: 300px; position: relative; background: #000; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                <canvas id="cropCanvas" style="max-width: 100%; max-height: 100%; cursor: move;"></canvas>
+                <div style="position: absolute; border: 2px dashed var(--neon-blue); border-radius: 50%; width: 200px; height: 200px; pointer-events: none; box-shadow: 0 0 0 9999px rgba(0,0,0,0.5);"></div>
+            </div>
+            
+            <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-search-minus" style="color: var(--text-secondary);"></i>
+                    <input type="range" id="cropZoomSlider" min="0.5" max="3.0" step="0.1" value="1.0" style="flex: 1; accent-color: var(--neon-blue); height: 6px; border-radius: 3px;">
+                    <i class="fas fa-search-plus" style="color: var(--text-secondary);"></i>
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: center;">
+                    <button type="button" class="settings-btn settings-btn-secondary" id="cropRotateLeftBtn"><i class="fas fa-undo"></i> Rotate Left</button>
+                    <button type="button" class="settings-btn settings-btn-secondary" id="cropRotateRightBtn"><i class="fas fa-redo"></i> Rotate Right</button>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 12px; justify-content: flex-end; margin-top: 20px;">
+                <button type="button" class="settings-btn settings-btn-secondary" onclick="closeSettingsModal('cropperModal')">Cancel</button>
+                <button type="button" class="settings-btn settings-btn-primary" id="cropSaveBtn"><i class="fas fa-check"></i> Apply Crop</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="restoreConfirmModal" class="settings-modal" aria-hidden="true" role="dialog" aria-labelledby="restoreModalTitle">
+        <div class="settings-modal-content">
+            <div class="settings-modal-header">
+                <span id="restoreModalTitle">Confirm Database Restore</span>
+                <button type="button" class="settings-modal-close" onclick="closeSettingsModal('restoreConfirmModal')" aria-label="Close dialog">&times;</button>
+            </div>
+            <p class="settings-toggle-desc" style="margin-bottom:16px;">This action will restore your database from the backup file. Your current data will be replaced. Are you sure you want to continue?</p>
+            <p style="color:var(--danger);font-weight:600;margin-bottom:20px;"><i class="fas fa-exclamation-circle"></i> This action cannot be undone!</p>
+            <div style="display:flex;gap:12px;justify-content:flex-end;">
+                <button type="button" class="settings-btn settings-btn-secondary" onclick="closeSettingsModal('restoreConfirmModal')">Cancel</button>
+                <button type="button" class="settings-btn settings-btn-danger" onclick="confirmRestore()">Confirm Restore</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="unsavedModal" class="settings-modal" aria-hidden="true" role="dialog" aria-labelledby="unsavedModalTitle">
+        <div class="settings-modal-content">
+            <div class="settings-modal-header">
+                <span id="unsavedModalTitle">Unsaved Changes</span>
+                <button type="button" class="settings-modal-close" onclick="closeSettingsModal('unsavedModal')" aria-label="Close dialog">&times;</button>
+            </div>
+            <p class="settings-toggle-desc" style="margin-bottom:20px;">You have unsaved changes. Do you want to save them before leaving?</p>
+            <div style="display:flex;gap:12px;justify-content:flex-end;">
+                <button type="button" class="settings-btn settings-btn-secondary" id="unsavedDiscardBtn">Discard</button>
+                <button type="button" class="settings-btn settings-btn-primary" id="unsavedSaveBtn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="scheduleBackupModal" class="settings-modal" aria-hidden="true" role="dialog" aria-labelledby="scheduleModalTitle">
+        <div class="settings-modal-content">
+            <div class="settings-modal-header">
+                <span id="scheduleModalTitle">Schedule Backup</span>
+                <button type="button" class="settings-modal-close" onclick="closeSettingsModal('scheduleBackupModal')" aria-label="Close dialog">&times;</button>
+            </div>
+            <p class="settings-toggle-desc" style="margin-bottom:16px;">Configure automatic backup schedule. Changes apply after saving settings.</p>
+            <div class="settings-form-group">
+                <label class="settings-label" for="scheduleFrequency">Frequency</label>
+                <select class="settings-select" id="scheduleFrequency">
+                    <option value="daily">Daily Backup</option>
+                    <option value="weekly">Weekly Backup</option>
+                    <option value="monthly">Monthly Backup</option>
+                </select>
+            </div>
+            <div style="display:flex;gap:12px;justify-content:flex-end;margin-top:20px;">
+                <button type="button" class="settings-btn settings-btn-secondary" onclick="closeSettingsModal('scheduleBackupModal')">Cancel</button>
+                <button type="button" class="settings-btn settings-btn-primary" onclick="confirmScheduleBackup()">Save Schedule</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="recoveryCodesModal" class="settings-modal" aria-hidden="true" role="dialog" aria-labelledby="recoveryModalTitle">
+        <div class="settings-modal-content">
+            <div class="settings-modal-header">
+                <span id="recoveryModalTitle">Backup Recovery Codes</span>
+                <button type="button" class="settings-modal-close" onclick="closeSettingsModal('recoveryCodesModal')" aria-label="Close dialog">&times;</button>
+            </div>
+            <p class="settings-toggle-desc" style="margin-bottom:12px;">Save these codes in a secure location. Each code can only be used once.</p>
+            <pre id="recoveryCodesList" style="background:rgba(0,0,0,0.3);padding:16px;border-radius:12px;font-size:13px;line-height:1.8;overflow-x:auto;"></pre>
+            <button type="button" class="settings-btn settings-btn-primary" style="margin-top:16px;width:100%;" onclick="closeSettingsModal('recoveryCodesModal')">Done</button>
+        </div>
+    </div>
+
+    <div class="settings-toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="app.js?v=20260531_edge_fixed"></script>
+    <script src="settings.js?v=20260531"></script>
+</body>
+
+</html>

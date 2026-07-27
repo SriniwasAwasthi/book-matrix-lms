@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="theme.js?v=20260531_edge_fixed"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrowed Books - Book Matrix</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=20260531_edge_fixed">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">BOOK MATRIX</div>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-th-large"></i> Dashboard</a></li>
+            <li class="nav-item"><a href="books.html" class="nav-link"><i class="fas fa-book"></i> Books</a></li>
+            <li class="nav-item"><a href="users.html" class="nav-link"><i class="fas fa-users"></i> Members</a></li>
+            <li class="nav-item"><a href="issue_return.html" class="nav-link active"><i class="fas fa-exchange-alt"></i> Borrowed Books</a></li>
+            <li class="nav-item"><a href="categories.html" class="nav-link"><i class="fas fa-tags"></i> Categories</a></li>
+            <li class="nav-item"><a href="authors.html" class="nav-link"><i class="fas fa-feather"></i> Authors</a></li>
+            <li class="nav-item"><a href="publishers.html" class="nav-link"><i class="fas fa-building"></i> Publishers</a></li>
+            <li class="nav-item"><a href="transactions.html" class="nav-link"><i class="fas fa-chart-bar"></i> Reports</a></li>
+            <li class="nav-item"><a href="messages.html" class="nav-link"><i class="fas fa-envelope"></i> Messages</a></li>
+            <li class="nav-item"><a href="settings.html" class="nav-link"><i class="fas fa-cog"></i> Settings</a></li>
+        </ul>
+        <div class="profile-mini">
+            <div class="profile-avatar"><img src="https://ui-avatars.com/api/?name=Admin+User" alt="Admin"></div>
+            <div class="profile-info"><h4>Admin User</h4><p>Online</p></div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <nav class="top-nav">
+            <h2 style="font-family: var(--font-heading); letter-spacing: 2px;">BORROWED BOOKS MGMT</h2>
+            <div class="header-actions">
+                <button class="action-btn" id="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                <button class="action-btn" title="Notifications"><i class="fas fa-bell"></i></button>
+                <button class="action-btn" title="Help"><i class="fas fa-question-circle"></i></button>
+            </div>
+        </nav>
+
+        <div id="msg" class="message"></div>
+
+        <div class="dashboard-layout">
+            <!-- Issue Book Form -->
+            <div class="section-panel glass-effect">
+                <div class="panel-title"><i class="fas fa-plus-circle" style="color: var(--neon-blue);"></i> Issue New Book</div>
+                <form id="issueForm" style="display: flex; flex-direction: column; gap: 20px;">
+                    <!-- Custom Searchable Member Select (Futuristic Premium) -->
+                    <div class="form-group-premium" id="memberDropdown">
+                        <label>Select Member</label>
+                        <div class="premium-select-wrapper">
+                            <input type="text" id="memberSearch" class="search-input premium-search-input" placeholder="Search member name or ID..." autocomplete="off" required>
+                            <i class="fas fa-chevron-down select-arrow"></i>
+                            <input type="hidden" id="memberSelect">
+                            <div class="premium-panel" id="memberList"></div>
+                        </div>
+                    </div>
+
+                    <!-- Custom Searchable Book Select -->
+                    <div class="form-group custom-dropdown" id="bookDropdown">
+                        <label>Select Book</label>
+                        <div class="dropdown-container">
+                            <input type="text" id="bookSearch" class="search-input" placeholder="Search book title..." autocomplete="off" required>
+                            <input type="hidden" id="bookSelect">
+                            <div class="dropdown-list" id="bookList"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Return Due Date</label>
+                        <input type="date" id="returnDate" class="search-input" required>
+                    </div>
+                    <button type="submit" class="btn-add">Confirm Issue</button>
+                </form>
+            </div>
+            
+            <!-- Return Book Form -->
+            <div class="section-panel glass-effect">
+                <div class="panel-title"><i class="fas fa-undo" style="color: var(--neon-purple); cursor: pointer;" onclick="location.reload()" title="Refresh Page"></i> Return a Book</div>
+                <form id="returnForm" style="display: flex; flex-direction: column; gap: 20px;">
+                    <div class="form-group">
+                        <label>Transaction ID</label>
+                        <input type="number" id="transactionId" class="search-input" style="padding-left: 20px;" placeholder="Enter Transaction ID (e.g. 101)" required>
+                    </div>
+                    <p style="font-size: 12px; color: var(--text-secondary);">Check the 'Reports' section if you don't know the Transaction ID.</p>
+                    <button type="submit" class="btn-add" style="background: linear-gradient(135deg, var(--neon-purple), var(--deep-purple));">Process Return</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js?v=20260531_edge_fixed"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let members = [];
+            let books = [];
+
+            function setupPremiumDropdown(idPrefix, data, labelField) {
+                const searchInput = document.getElementById(idPrefix + 'Search');
+                const hiddenInput = document.getElementById(idPrefix + 'Select');
+                const list = document.getElementById(idPrefix + 'List');
+                const wrapper = searchInput.parentElement;
+
+                function renderList(filter = '') {
+                    const filtered = data.filter(item => 
+                        (item[labelField] || '').toLowerCase().includes(filter.toLowerCase()) ||
+                        (item.id && item.id.toString().includes(filter))
+                    );
+                    
+                    if (filtered.length === 0) {
+                        list.innerHTML = `<div class="premium-item" style="cursor: default; justify-content: center;"><span class="premium-item-name" style="color: #64748b;">No matches found</span></div>`;
+                    } else {
+                        list.innerHTML = filtered.map(item => {
+                            let subText = item.id ? `ID: ${item.id}` : '';
+                            let initials = (item[labelField] || 'U').substring(0, 2).toUpperCase();
+                            
+                            return `
+                            <div class="premium-item" data-id="${item.id}" data-label="${item[labelField]}">
+                                <div class="premium-item-avatar">${initials}</div>
+                                <div class="premium-item-content">
+                                    <span class="premium-item-name">${item[labelField]}</span>
+                                    <span class="premium-item-sub">${subText}</span>
+                                </div>
+                            </div>
+                            `;
+                        }).join('');
+                    }
+                    list.style.display = 'block';
+                    wrapper.classList.add('open');
+                }
+
+                searchInput.onfocus = () => renderList(searchInput.value);
+                searchInput.oninput = () => renderList(searchInput.value);
+                
+                document.addEventListener('click', (e) => {
+                    if (!searchInput.contains(e.target) && !list.contains(e.target)) {
+                        list.style.display = 'none';
+                        wrapper.classList.remove('open');
+                    }
+                });
+
+                list.onclick = (e) => {
+                    const item = e.target.closest('.premium-item');
+                    if (item && item.dataset.id) {
+                        hiddenInput.value = item.dataset.id;
+                        searchInput.value = item.dataset.label;
+                        list.style.display = 'none';
+                        wrapper.classList.remove('open');
+                        
+                        list.querySelectorAll('.premium-item').forEach(el => el.classList.remove('selected'));
+                        item.classList.add('selected');
+                    }
+                };
+            }
+
+            function setupDropdown(idPrefix, data, labelField, searchPlaceholder) {
+                const searchInput = document.getElementById(idPrefix + 'Search');
+                const hiddenInput = document.getElementById(idPrefix + 'Select');
+                const list = document.getElementById(idPrefix + 'List');
+
+                function renderList(filter = '') {
+                    const filtered = data.filter(item => 
+                        (item[labelField] || '').toLowerCase().includes(filter.toLowerCase()) ||
+                        (item.id && item.id.toString().includes(filter))
+                    );
+                    
+                    if (filtered.length === 0) {
+                        list.innerHTML = `<div class="dropdown-item" style="cursor: default; opacity: 0.5; text-align: center;">No matches found</div>`;
+                    } else {
+                        list.innerHTML = filtered.map(item => {
+                            let subText = item.id ? `(ID: ${item.id})` : '';
+                            // If it's a book, show availability
+                            if (item.avail_qty !== undefined) {
+                                subText = `Available: ${item.avail_qty}`;
+                            }
+                            return `
+                            <div class="dropdown-item" data-id="${item.id}" data-label="${item[labelField]}">
+                                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                                    <span style="font-weight: 500;">${item[labelField]}</span>
+                                    <span style="font-size: 11px; opacity: 0.7; font-family: var(--font-heading); background: rgba(0,210,255,0.1); padding: 2px 8px; border-radius: 4px;">${subText}</span>
+                                </div>
+                            </div>
+                            `;
+                        }).join('');
+                    }
+                    list.style.display = 'block';
+                }
+
+                searchInput.onfocus = () => renderList(searchInput.value);
+                searchInput.oninput = () => renderList(searchInput.value);
+                
+                document.addEventListener('click', (e) => {
+                    if (!searchInput.contains(e.target) && !list.contains(e.target)) {
+                        list.style.display = 'none';
+                    }
+                });
+
+                list.onclick = (e) => {
+                    const item = e.target.closest('.dropdown-item');
+                    if (item) {
+                        hiddenInput.value = item.dataset.id;
+                        searchInput.value = item.dataset.label;
+                        list.style.display = 'none';
+                    }
+                };
+            }
+
+            // Load Users
+            fetch('/api?action=get_users').then(r=>r.json()).then(data=>{
+                members = data;
+                setupPremiumDropdown('member', members, 'name');
+            });
+
+            // Load Books
+            fetch('/api?action=get_books').then(r=>r.json()).then(data=>{
+                books = data.filter(b => b.avail_qty > 0);
+                setupDropdown('book', books, 'title');
+            });
+
+            document.getElementById('issueForm').onsubmit = (e) => {
+                e.preventDefault();
+                const userId = document.getElementById('memberSelect').value;
+                const bookId = document.getElementById('bookSelect').value;
+                const retDate = document.getElementById('returnDate').value;
+
+                if (!userId || !bookId) {
+                    alert("Please select both a member and a book from the dropdown list.");
+                    return;
+                }
+
+                const params = new URLSearchParams({
+                    action: 'issue_book',
+                    user_id: userId,
+                    book_id: bookId,
+                    return_date: retDate
+                });
+                
+                fetch(`/api?${params.toString()}`)
+                    .then(res => res.json()).then(data => { 
+                        showMessage('msg', data); 
+                        if (!data.error) {
+                            document.getElementById('issueForm').reset();
+                            document.getElementById('memberSelect').value = '';
+                            document.getElementById('bookSelect').value = '';
+                        }
+                    });
+            };
+
+            document.getElementById('returnForm').onsubmit = (e) => {
+                e.preventDefault();
+                const params = new URLSearchParams({ action: 'return_book', transaction_id: document.getElementById('transactionId').value });
+                fetch(`/api?${params.toString()}`)
+                    .then(res => res.json()).then(data => { showMessage('msg', data); document.getElementById('returnForm').reset(); });
+            };
+        });
+
+        function showMessage(id, data) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            if (data.error) {
+                el.className = 'message error';
+                el.textContent = '❌ ' + data.error;
+            } else if (data.success) {
+                el.className = 'message success';
+                el.textContent = '✅ ' + data.success;
+            }
+            el.style.display = 'block';
+            setTimeout(() => { el.style.display = 'none'; }, 4000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="theme.js?v=20260531_edge_fixed"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Overview - Libraria</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=20260531_edge_fixed">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="brand">BOOK MATRIX</div>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-th-large"></i> Dashboard</a></li>
+            <li class="nav-item"><a href="books.html" class="nav-link"><i class="fas fa-book"></i> Books</a></li>
+            <li class="nav-item"><a href="users.html" class="nav-link"><i class="fas fa-users"></i> Members</a></li>
+            <li class="nav-item"><a href="issue_return.html" class="nav-link"><i class="fas fa-exchange-alt"></i> Borrowed Books</a></li>
+            <li class="nav-item"><a href="categories.html" class="nav-link"><i class="fas fa-tags"></i> Categories</a></li>
+            <li class="nav-item"><a href="authors.html" class="nav-link"><i class="fas fa-feather"></i> Authors</a></li>
+            <li class="nav-item"><a href="publishers.html" class="nav-link"><i class="fas fa-building"></i> Publishers</a></li>
+            <li class="nav-item"><a href="transactions.html" class="nav-link"><i class="fas fa-chart-bar"></i> Reports</a></li>
+            <li class="nav-item"><a href="messages.html" class="nav-link"><i class="fas fa-envelope"></i> Messages</a></li>
+            <li class="nav-item"><a href="settings.html" class="nav-link"><i class="fas fa-cog"></i> Settings</a></li>
+        </ul>
+        <div class="profile-mini">
+            <div class="profile-avatar"><img src="https://ui-avatars.com/api/?name=Admin+User" alt="Admin"></div>
+            <div class="profile-info"><h4>Admin User</h4><p>Online</p></div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <nav class="top-nav">
+            <h2 style="font-family: 'Cinzel', serif; letter-spacing: 2px;">ANALYTICS OVERVIEW</h2>
+            <div class="header-actions">
+                <button class="action-btn" id="theme-toggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="action-btn" id="bell-btn" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                </button>
+                <button class="action-btn"><i class="fas fa-calendar"></i></button>
+                <button class="action-btn"><i class="fas fa-sync"></i></button>
+            </div>
+        </nav>
+
+        <!-- Analytics Overview Cards -->
+        <div class="stats-grid">
+            <div class="stat-card glass-effect card-blue">
+                <div class="stat-header">
+                    <div class="stat-icon-box"><i class="fas fa-book"></i></div>
+                    <div class="stat-trend" id="total_books_trend">+0%</div>
+                </div>
+                <div class="stat-value" id="total_books_val">0</div>
+                <div class="stat-label">Total Book Copies</div>
+            </div>
+            <div class="stat-card glass-effect card-purple">
+                <div class="stat-header">
+                    <div class="stat-icon-box"><i class="fas fa-user"></i></div>
+                    <div class="stat-trend" id="total_members_trend">+0%</div>
+                </div>
+                <div class="stat-value" id="total_members_val">0</div>
+                <div class="stat-label">Total Members</div>
+            </div>
+            <div class="stat-card glass-effect card-green">
+                <div class="stat-header">
+                    <div class="stat-icon-box"><i class="fas fa-arrow-up"></i></div>
+                    <div class="stat-trend" id="borrowed_books_trend">+0%</div>
+                </div>
+                <div class="stat-value" id="borrowed_books_val">0</div>
+                <div class="stat-label">Currently Borrowed</div>
+            </div>
+            <div class="stat-card glass-effect card-red">
+                <div class="stat-header">
+                    <div class="stat-icon-box"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div class="stat-trend" id="overdue_books_trend">+0%</div>
+                </div>
+                <div class="stat-value" id="overdue_books_val">0</div>
+                <div class="stat-label">Overdue Books</div>
+            </div>
+        </div>
+
+        <div class="dashboard-layout">
+            <!-- Monthly Comparison Bar Chart -->
+            <div class="section-panel glass-effect">
+                <div class="panel-title">Borrowed vs Returned (Monthly)</div>
+                <div style="height: 350px;">
+                    <canvas id="monthlyBarChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Recent Activity Panel -->
+            <div class="section-panel glass-effect">
+                <div class="panel-title">Action Feed</div>
+                <div class="activity-list" id="action_feed_list">
+                    <div style="text-align:center; color: var(--text-secondary); padding: 20px;">Loading activities...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories and Overdue Widget -->
+        <div class="dashboard-layout">
+            <div class="section-panel glass-effect">
+                <div class="panel-title">Top Categories</div>
+                <div class="stats-grid" id="top_categories_grid" style="grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 0;">
+                    <div style="text-align:center; color: var(--text-secondary); padding: 20px; grid-column: span 2;">Loading categories...</div>
+                </div>
+            </div>
+
+            <div class="section-panel glass-effect">
+                <div class="panel-title">Overdue Alerts</div>
+                <div class="activity-list" id="overdue_alerts_list">
+                    <div style="text-align:center; color: var(--text-secondary); padding: 20px;">Loading alerts...</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js?v=20260531_edge_fixed"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Fetch Dashboard Stats
+            fetch('/api?action=dashboard')
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('total_books_val').innerText = data.total_books !== undefined ? data.total_books.toLocaleString() : '0';
+                    document.getElementById('total_members_val').innerText = data.total_users !== undefined ? data.total_users.toLocaleString() : '0';
+                    document.getElementById('borrowed_books_val').innerText = data.issued_books !== undefined ? data.issued_books.toLocaleString() : '0';
+                    document.getElementById('overdue_books_val').innerText = data.overdue_books !== undefined ? data.overdue_books.toLocaleString() : '0';
+                })
+                .catch(err => console.error("Error fetching stats:", err));
+
+            // Fetch Top Categories
+            fetch('/api?action=get_books')
+                .then(res => res.json())
+                .then(books => {
+                    const counts = {};
+                    let total = 0;
+                    books.forEach(b => {
+                        const cat = b.category || 'Uncategorized';
+                        counts[cat] = (counts[cat] || 0) + (b.total_qty || 0);
+                        total += (b.total_qty || 0);
+                    });
+                    
+                    const sorted = Object.entries(counts).sort((a,b) => b[1] - a[1]).slice(0, 4);
+                    const grid = document.getElementById('top_categories_grid');
+                    if (sorted.length === 0) {
+                        grid.innerHTML = '<div style="text-align:center; color: var(--text-secondary); padding:20px; grid-column: span 2;">No categories found</div>';
+                        return;
+                    }
+                    
+                    const colors = ['card-blue', 'card-purple', 'card-green', 'card-red'];
+                    const grads = [
+                        'linear-gradient(135deg, rgba(0, 210, 255, 0.1), transparent)',
+                        'linear-gradient(135deg, rgba(157, 80, 187, 0.1), transparent)',
+                        'linear-gradient(135deg, rgba(0, 255, 136, 0.1), transparent)',
+                        'linear-gradient(135deg, rgba(255, 77, 77, 0.1), transparent)'
+                    ];
+                    
+                    grid.innerHTML = sorted.map((item, idx) => {
+                        const name = item[0].toUpperCase();
+                        const percent = total > 0 ? Math.round((item[1] / total) * 100) : 0;
+                        const cardClass = colors[idx % colors.length];
+                        const gradStyle = grads[idx % grads.length];
+                        return `
+                            <div class="stat-card glass-effect ${cardClass}" style="padding: 15px; background: ${gradStyle};">
+                                <h4 style="font-size: 14px;">${name}</h4>
+                                <p style="font-size: 20px; font-weight: 700;">${percent}%</p>
+                            </div>
+                        `;
+                    }).join('');
+                })
+                .catch(err => console.error("Error fetching categories:", err));
+
+            // Fetch Transactions (for Feed, Alerts and Chart)
+            fetch('/api?action=get_transactions')
+                .then(res => res.json())
+                .then(txs => {
+                    // Overdue Alerts
+                    const alertsList = document.getElementById('overdue_alerts_list');
+                    const today = new Date();
+                    today.setHours(0,0,0,0);
+                    
+                    const overdue = txs.filter(t => {
+                        if (t.actual_return_date) return false;
+                        const retDate = new Date(t.return_date);
+                        return retDate < today;
+                    });
+                    
+                    if (overdue.length === 0) {
+                        alertsList.innerHTML = '<div style="text-align:center; color: var(--text-secondary); padding:20px;">No overdue books</div>';
+                    } else {
+                        alertsList.innerHTML = overdue.slice(0, 4).map(t => {
+                            const retDate = new Date(t.return_date);
+                            const diffTime = Math.abs(today - retDate);
+                            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                            return `
+                                <div class="activity-item">
+                                    <div class="stat-icon-box" style="background: rgba(255, 77, 77, 0.1); color: var(--danger);"><i class="fas fa-exclamation-triangle"></i></div>
+                                    <div class="activity-desc">
+                                        <p><strong>${t.book}</strong> by ${t.user}</p>
+                                        <span style="color: var(--danger);">Overdue by ${diffDays} days</span>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('');
+                    }
+                    
+                    // Action Feed
+                    const feedList = document.getElementById('action_feed_list');
+                    if (txs.length === 0) {
+                        feedList.innerHTML = '<div style="text-align:center; color: var(--text-secondary); padding:20px;">No recent activity</div>';
+                    } else {
+                        const sortedTxs = txs.sort((a,b) => b.id - a.id).slice(0, 4);
+                        feedList.innerHTML = sortedTxs.map(t => {
+                            const isReturned = !!t.actual_return_date;
+                            const icon = isReturned ? 'fa-check' : 'fa-arrow-up';
+                            const iconColor = isReturned ? 'var(--neon-green)' : 'var(--neon-blue)';
+                            const iconBg = isReturned ? 'rgba(0, 255, 136, 0.1)' : 'rgba(0, 210, 255, 0.1)';
+                            const actionText = isReturned ? `returned '${t.book}'` : `borrowed '${t.book}'`;
+                            const timeText = isReturned ? t.actual_return_date : t.issue_date;
+                            return `
+                                <div class="activity-item">
+                                    <div class="stat-icon-box" style="background: ${iconBg}; color: ${iconColor};"><i class="fas ${icon}"></i></div>
+                                    <div class="activity-desc">
+                                        <p><strong>${t.user}</strong> ${actionText}</p>
+                                        <span>${timeText}</span>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('');
+                    }
+                    
+                    // Monthly Chart
+                    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                    const monthlyData = {};
+                    
+                    for (let i = 4; i >= 0; i--) {
+                        const d = new Date();
+                        d.setMonth(d.getMonth() - i);
+                        const mName = months[d.getMonth()];
+                        monthlyData[mName] = { borrowed: 0, returned: 0 };
+                    }
+                    
+                    txs.forEach(t => {
+                        const issueD = new Date(t.issue_date);
+                        const issueM = months[issueD.getMonth()];
+                        if (monthlyData[issueM]) {
+                            monthlyData[issueM].borrowed++;
+                        }
+                        
+                        if (t.actual_return_date) {
+                            const retD = new Date(t.actual_return_date);
+                            const retM = months[retD.getMonth()];
+                            if (monthlyData[retM]) {
+                                monthlyData[retM].returned++;
+                            }
+                        }
+                    });
+                    
+                    const labels = Object.keys(monthlyData);
+                    const borrowedCounts = labels.map(m => monthlyData[m].borrowed);
+                    const returnedCounts = labels.map(m => monthlyData[m].returned);
+                    
+                    const ctx = document.getElementById('monthlyBarChart').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [
+                                {
+                                    label: 'Borrowed',
+                                    data: borrowedCounts,
+                                    backgroundColor: '#00d2ff'
+                                },
+                                {
+                                    label: 'Returned',
+                                    data: returnedCounts,
+                                    backgroundColor: '#9d50bb'
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: { legend: { labels: { color: '#b0b0d0' } } },
+                            scales: {
+                                y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#b0b0d0', stepSize: 1 } },
+                                x: { grid: { display: false }, ticks: { color: '#b0b0d0' } }
+                            }
+                        }
+                    });
+                })
+                .catch(err => console.error("Error loading transactions:", err));
+        });
+    </script>
+</body>
+</html>

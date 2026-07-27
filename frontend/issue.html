@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="theme.js?v=20260531_edge_fixed"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Matrix - Issue Book</title>
+    <link rel="stylesheet" href="style.css?v=20260531_edge_fixed">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar glass">
+        <div class="logo">BOOK MATRIX</div>
+        <ul class="nav-links">
+            <li><a href="index.html"><span>📊</span> Dashboard</a></li>
+            <li><a href="books.html"><span>📚</span> Books Mgmt</a></li>
+            <li><a href="issue.html" class="active"><span>📤</span> Issue Book</a></li>
+            <li><a href="return.html"><span>📥</span> Return Book</a></li>
+            <li><a href="users.html"><span>👥</span> User Mgmt</a></li>
+            <li><a href="transactions.html"><span>📋</span> Transactions</a></li>
+        </ul>
+        <div class="user-profile">
+            <div class="avatar">AD</div>
+            <div>
+                <div style="font-weight: 600; font-size: 14px;">Admin User</div>
+                <div style="color: var(--success); font-size: 12px;">● System Online</div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="search-bar">
+                <input type="text" placeholder="Search to check if a book is present...">
+            </div>
+            <div class="header-utils">
+                <button class="icon-btn" id="theme-toggle">🌙</button>
+                <button class="icon-btn">🔔</button>
+                <a href="issue.html" class="btn-primary" style="text-decoration: none;">+ New Issue</a>
+            </div>
+        </header>
+
+        <div id="msg" class="message"></div>
+
+        <div class="content-layout" style="grid-template-columns: 1fr;">
+            <!-- Issue Book Form -->
+            <div class="panel glass" style="max-width: 600px; margin: 0 auto;">
+                <div class="panel-header">
+                    <h2 class="panel-title">Issue Book</h2>
+                </div>
+                <form id="issueForm">
+                    <div class="form-group"><label>Select User</label><select id="userSelect" required></select></div>
+                    <div class="form-group"><label>Select Book</label><select id="bookSelect" required></select></div>
+                    <div class="form-group"><label>Expected Return Date</label><input type="date" id="returnDate" required></div>
+                    <button type="submit" class="btn-primary" style="width: 100%;">Issue Book</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js?v=20260531_edge_fixed"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Load Users
+            fetch('/api?action=get_users').then(r=>r.json()).then(data=>{
+                let html = '<option value="">-- Select User --</option>';
+                data.forEach(u => html += `<option value="${u.id}">${u.name} (ID: ${u.id})</option>`);
+                document.getElementById('userSelect').innerHTML = html;
+            });
+
+            // Load Books
+            fetch('/api?action=get_books').then(r=>r.json()).then(data=>{
+                let html = '<option value="">-- Select Book --</option>';
+                data.forEach(b => {
+                    if(b.avail_qty > 0) html += `<option value="${b.id}">${b.title} (Avail: ${b.avail_qty})</option>`;
+                });
+                document.getElementById('bookSelect').innerHTML = html;
+            });
+
+            document.getElementById('issueForm').onsubmit = (e) => {
+                e.preventDefault();
+                const params = new URLSearchParams({
+                    action: 'issue_book',
+                    user_id: document.getElementById('userSelect').value,
+                    book_id: document.getElementById('bookSelect').value,
+                    return_date: document.getElementById('returnDate').value
+                });
+                fetch(`/api?${params.toString()}`)
+                    .then(res => res.json()).then(data => { showMessage('msg', data); document.getElementById('issueForm').reset(); });
+            };
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="theme.js?v=20260531_edge_fixed"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Matrix - Return Book</title>
+    <link rel="stylesheet" href="style.css?v=20260531_edge_fixed">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar glass">
+        <div class="logo">BOOK MATRIX</div>
+        <ul class="nav-links">
+            <li><a href="index.html"><span>📊</span> Dashboard</a></li>
+            <li><a href="books.html"><span>📚</span> Books Mgmt</a></li>
+            <li><a href="issue.html"><span>📤</span> Issue Book</a></li>
+            <li><a href="return.html" class="active"><span>📥</span> Return Book</a></li>
+            <li><a href="users.html"><span>👥</span> User Mgmt</a></li>
+            <li><a href="transactions.html"><span>📋</span> Transactions</a></li>
+        </ul>
+        <div class="user-profile">
+            <div class="avatar">AD</div>
+            <div>
+                <div style="font-weight: 600; font-size: 14px;">Admin User</div>
+                <div style="color: var(--success); font-size: 12px;">● System Online</div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="search-bar">
+                <input type="text" placeholder="Search to check if a book is present...">
+            </div>
+            <div class="header-utils">
+                <button class="icon-btn" id="theme-toggle">🌙</button>
+                <button class="icon-btn">🔔</button>
+                <a href="issue.html" class="btn-primary" style="text-decoration: none;">+ New Issue</a>
+            </div>
+        </header>
+
+        <div id="msg" class="message"></div>
+
+        <div class="content-layout" style="grid-template-columns: 1fr;">
+            <!-- Return Book Form -->
+            <div class="panel glass" style="max-width: 600px; margin: 0 auto;">
+                <div class="panel-header">
+                    <h2 class="panel-title">Return Book</h2>
+                </div>
+                <form id="returnForm">
+                    <div class="form-group">
+                        <label>Transaction ID</label>
+                        <input type="number" id="transactionId" placeholder="Enter Transaction ID" required>
+                    </div>
+                    <button type="submit" class="btn-danger" style="width: 100%; padding: 14px; border-radius: 8px; font-weight: 700; background: #ff4b4b; box-shadow: 0 0 20px rgba(255, 75, 75, 0.3);">Return Book</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js?v=20260531_edge_fixed"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById('returnForm').onsubmit = (e) => {
+                e.preventDefault();
+                const params = new URLSearchParams({ action: 'return_book', transaction_id: document.getElementById('transactionId').value });
+                fetch(`/api?${params.toString()}`)
+                    .then(res => res.json()).then(data => { showMessage('msg', data); document.getElementById('returnForm').reset(); });
+            };
+        });
+    </script>
+</body>
+</html>

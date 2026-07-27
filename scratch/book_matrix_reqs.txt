@@ -1,0 +1,1872 @@
+## Time: 2026-05-29 15:12:29 | Conversation: ba7b725d-56d7-4bd5-82d4-b4fd94ad85fe
+<USER_REQUEST>
+Hey, analyze each and everything. I am unable to use these messages in the book matrix. I can't use messages with the library assistant so please refer to it and give me a correct executable code. 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-29T15:12:29+05:30.
+</ADDITIONAL_METADATA>
+--------------------------------------------------------------------------------
+
+
+## Time: 2026-05-29 15:40:15 | Conversation: 2b9c2a03-b520-4c1d-980a-4390a8e962ad
+<USER_REQUEST>
+When I am using bookmatrix messages library assistant, it is giving a reply like this so, based upon that, please give me the correct result so I can just analyze it because I have to present tomorrow this project. 
+nline
+
+
+
+Hello! I am your Library AI. You can ask me to 'list books' or 'search [title]'.
+
+hi
+
+Hi there! I'm the Book Matrix Assistant. Need help finding a book?
+
+say some books names
+
+Here are some books in our library:
+
+- The Great Gatsby by F. Scott Fitzgerald
+
+- 1984 by George Orwell
+
+- Brave New World by Aldous Huxley
+
+- The Alchemist by Paulo Coelho
+
+- Atomic Habits by James Clear
+
+PSYCHOLOGY
+
+I'm still learning! You can ask me to 'list books' or 'search [title]'.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-29T15:40:15+05:30.
+</ADDITIONAL_METADATA>
+--------------------------------------------------------------------------------
+
+
+## Time: 2026-05-29 15:49:24 | Conversation: 2b9c2a03-b520-4c1d-980a-4390a8e962ad
+<USER_REQUEST>
+brary Assistant
+
+Online
+
+
+
+Hello! I am your Library AI. You can ask me to 'list books' or 'search [title]'.
+
+hi
+
+I'm sorry, I encountered an error.
+
+give me some PSYCHOLOGY books
+
+I'm sorry, I encountered an error.
+Hey even after saying you, it's not working properly. Please refer to the previous prompts which have been given to you. Give me the correct executable library assistant even when I ask him. 
+
+# COMPLETE MASTER PROMPT — AI LIBRARY ASSISTANT FOR BOOK MATRIX
+
+
+
+Create a highly advanced AI-powered Library Management System called “BOOK MATRIX” with a fully working intelligent chatbot named “Library Assistant”.
+
+
+
+The current design already includes:
+
+
+
+* Sidebar navigation
+
+* Messenger/chat interface
+
+* Dark futuristic UI
+
+* Admin dashboard
+
+
+
+Now transform it into a PROFESSIONAL AI-POWERED DIGITAL LIBRARY SYSTEM with a real working assistant.
+
+
+
+---
+
+
+
+## MAIN OBJECTIVE
+
+
+
+The Library Assistant must answer ANY library-related query intelligently without showing:
+
+“I’m sorry, I encountered an error.”
+
+
+
+The chatbot must behave like a real AI assistant similar to ChatGPT integrated inside a Library Management System.
+
+
+
+---
+
+
+
+## CORE CHATBOT FEATURES
+
+
+
+The chatbot must understand natural language queries.
+
+
+
+Examples:
+
+
+
+Greetings:
+
+
+
+* hi
+
+* hello
+
+* hey
+
+
+
+Book Queries:
+
+
+
+* how many books are present
+
+* total books available
+
+* show all books
+
+* available books
+
+* borrowed books
+
+
+
+Specific Book Search:
+
+
+
+* search atomic habits
+
+* give me atomic habits book
+
+* is atomic habits present
+
+* who wrote atomic habits
+
+* what is the cost of atomic habits
+
+* what is atomic habits about
+
+* where is atomic habits located
+
+
+
+Category Queries:
+
+
+
+* give me psychology books
+
+* suggest self help books
+
+* recommend fiction books
+
+* suggest technology books
+
+* philosophy books
+
+* science books
+
+
+
+Recommendation Queries:
+
+
+
+* I am bored suggest some books
+
+* recommend interesting books
+
+* best motivational books
+
+* top psychology books
+
+* trending books
+
+
+
+Member Queries:
+
+
+
+* total mem
+<truncated 4219 bytes>
+thor
+
+* Category
+
+* Price
+
+* Rating
+
+* Availability
+
+* Borrow button
+
+* Wishlist button
+
+
+
+---
+
+
+
+## SEARCH SYSTEM
+
+
+
+Search books by:
+
+
+
+* title
+
+* author
+
+* category
+
+* publisher
+
+* ISBN
+
+* keywords
+
+
+
+Search must support partial matching.
+
+
+
+Example:
+
+“atomic”
+
+should return:
+
+“Atomic Habits”
+
+
+
+---
+
+
+
+## MEMBER MANAGEMENT FEATURES
+
+
+
+AI should answer:
+
+
+
+* total members
+
+* active members
+
+* overdue members
+
+* borrowed history
+
+
+
+---
+
+
+
+## REPORT SYSTEM
+
+
+
+AI should generate:
+
+
+
+* total books
+
+* total borrowed books
+
+* most borrowed category
+
+* monthly reports
+
+* overdue statistics
+
+
+
+---
+
+
+
+## SECURITY & PERFORMANCE
+
+
+
+Implement:
+
+
+
+* Input sanitization
+
+* SQL injection protection
+
+* Fast API responses
+
+* Error handling
+
+* Logging system
+
+
+
+---
+
+
+
+## SAMPLE DATA
+
+
+
+Populate database with minimum:
+
+
+
+* 100 books
+
+* 20 authors
+
+* 10 categories
+
+* 50 members
+
+
+
+Categories:
+
+
+
+* Psychology
+
+* Self Help
+
+* Fiction
+
+* Technology
+
+* Business
+
+* Philosophy
+
+* Science
+
+* History
+
+* Motivation
+
+* Productivity
+
+
+
+---
+
+
+
+## FINAL OUTPUT REQUIRED
+
+
+
+Generate:
+
+
+
+* Complete frontend
+
+* Complete backend
+
+* Database schema
+
+* AI chatbot logic
+
+* API integration
+
+* Search engine
+
+* Recommendation engine
+
+* Responsive futuristic UI
+
+
+
+The chatbot must work perfectly and intelligently answer all user queries related to:
+
+
+
+* Books
+
+* Members
+
+* Borrowed books
+
+* Categories
+
+* Authors
+
+* Publishers
+
+* Reports
+
+* Recommendations
+
+* Statistics
+
+
+
+WITHOUT showing generic errors.
+
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-29T15:49:24+05:30.
+
+The user's current state is as follows:
+Active Document: e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\app.js (LANGUAGE_JAVASCRIPT)
+Cursor is on line: 1
+Other open documents:
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\app.js (LANGUAGE_JAVASCRIPT)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\messages.html (LANGUAGE_HTML)
+</ADDITIONAL_METADATA>
+--------------------------------------------------------------------------------
+
+
+## Time: 2026-05-29 16:47:06 | Conversation: 2b9c2a03-b520-4c1d-980a-4390a8e962ad
+<USER_REQUEST>
+brary Assistant
+
+Online
+
+
+
+Hello! I am your Library AI. You can ask me to 'list books' or 'search [title]'.
+
+hi
+
+I'm sorry, I encountered an error.
+
+give me some PSYCHOLOGY books
+
+I'm sorry, I encountered an error.
+Hey even after saying you, it's not working properly. Please refer to the previous prompts which have been given to you. Give me the correct executable library assistant even when I ask him. 
+
+# COMPLETE MASTER PROMPT — AI LIBRARY ASSISTANT FOR BOOK MATRIX
+
+
+
+Create a highly advanced AI-powered Library Management System called “BOOK MATRIX” with a fully working intelligent chatbot named “Library Assistant”.
+
+
+
+The current design already includes:
+
+
+
+* Sidebar navigation
+
+* Messenger/chat interface
+
+* Dark futuristic UI
+
+* Admin dashboard
+
+
+
+Now transform it into a PROFESSIONAL AI-POWERED DIGITAL LIBRARY SYSTEM with a real working assistant.
+
+
+
+---
+
+
+
+## MAIN OBJECTIVE
+
+
+
+The Library Assistant must answer ANY library-related query intelligently without showing:
+
+“I’m sorry, I encountered an error.”
+
+
+
+The chatbot must behave like a real AI assistant similar to ChatGPT integrated inside a Library Management System.
+
+
+
+---
+
+
+
+## CORE CHATBOT FEATURES
+
+
+
+The chatbot must understand natural language queries.
+
+
+
+Examples:
+
+
+
+Greetings:
+
+
+
+* hi
+
+* hello
+
+* hey
+
+
+
+Book Queries:
+
+
+
+* how many books are present
+
+* total books available
+
+* show all books
+
+* available books
+
+* borrowed books
+
+
+
+Specific Book Search:
+
+
+
+* search atomic habits
+
+* give me atomic habits book
+
+* is atomic habits present
+
+* who wrote atomic habits
+
+* what is the cost of atomic habits
+
+* what is atomic habits about
+
+* where is atomic habits located
+
+
+
+Category Queries:
+
+
+
+* give me psychology books
+
+* suggest self help books
+
+* recommend fiction books
+
+* suggest technology books
+
+* philosophy books
+
+* science books
+
+
+
+Recommendation Queries:
+
+
+
+* I am bored suggest some books
+
+* recommend interesting books
+
+* best motivational books
+
+* top psychology books
+
+* trending books
+
+
+
+Member Queries:
+
+
+
+* total mem
+<truncated 4332 bytes>
+M
+
+
+
+Search books by:
+
+
+
+* title
+
+* author
+
+* category
+
+* publisher
+
+* ISBN
+
+* keywords
+
+
+
+Search must support partial matching.
+
+
+
+Example:
+
+“atomic”
+
+should return:
+
+“Atomic Habits”
+
+
+
+---
+
+
+
+## MEMBER MANAGEMENT FEATURES
+
+
+
+AI should answer:
+
+
+
+* total members
+
+* active members
+
+* overdue members
+
+* borrowed history
+
+
+
+---
+
+
+
+## REPORT SYSTEM
+
+
+
+AI should generate:
+
+
+
+* total books
+
+* total borrowed books
+
+* most borrowed category
+
+* monthly reports
+
+* overdue statistics
+
+
+
+---
+
+
+
+## SECURITY & PERFORMANCE
+
+
+
+Implement:
+
+
+
+* Input sanitization
+
+* SQL injection protection
+
+* Fast API responses
+
+* Error handling
+
+* Logging system
+
+
+
+---
+
+
+
+## SAMPLE DATA
+
+
+
+Populate database with minimum:
+
+
+
+* 100 books
+
+* 20 authors
+
+* 10 categories
+
+* 50 members
+
+
+
+Categories:
+
+
+
+* Psychology
+
+* Self Help
+
+* Fiction
+
+* Technology
+
+* Business
+
+* Philosophy
+
+* Science
+
+* History
+
+* Motivation
+
+* Productivity
+
+
+
+---
+
+
+
+## FINAL OUTPUT REQUIRED
+
+
+
+Generate:
+
+
+
+* Complete frontend
+
+* Complete backend
+
+* Database schema
+
+* AI chatbot logic
+
+* API integration
+
+* Search engine
+
+* Recommendation engine
+
+* Responsive futuristic UI
+
+
+
+The chatbot must work perfectly and intelligently answer all user queries related to:
+
+
+
+* Books
+
+* Members
+
+* Borrowed books
+
+* Categories
+
+* Authors
+
+* Publishers
+
+* Reports
+
+* Recommendations
+
+* Statistics
+
+
+
+WITHOUT showing generic errors.
+
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-29T16:47:06+05:30.
+
+The user's current state is as follows:
+Active Document: e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\app.js (LANGUAGE_JAVASCRIPT)
+Cursor is on line: 451
+Other open documents:
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\app.js (LANGUAGE_JAVASCRIPT)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\backend\server.py (LANGUAGE_PYTHON)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\messages.html (LANGUAGE_HTML)
+</ADDITIONAL_METADATA>
+--------------------------------------------------------------------------------
+
+
+## Time: 2026-05-29 17:43:36 | Conversation: e56128a7-6331-4eb3-819f-15a58c814b3b
+<USER_REQUEST>
+
+Library Assistant
+Online
+
+Hello! I am your Library AI. You can ask me to 'list books' or 'search [title]'.
+hi
+Hello! I'm the Book Matrix Assistant. I can help you search for books, check availability, view library statistics, or recommend reads. How can I help you today?
+give me some suggections for books
+I've analyzed the entire database for your query, but I couldn't find a specific match. You can try:<br>• <strong>search [book title]</strong> (e.g. <em>search atomic habits</em>)<br>• <strong>[category] books</strong> (e.g. <em>psychology books</em>)<br>• <strong>total books available</strong><br>• <strong>top authors</strong>
+give me some suggections for psychology books
+Absolutely! Since you're looking for <strong>PSYCHOLOGY</strong>, here are some excellent picks from our collection:<br><br><div class="recommendation-cards-container" style="display: flex; gap: 15px; overflow-x: auto; padding: 10px 0; margin-top: 10px; width: 100%;">
+<div class="book-card-mini" style="flex: 0 0 200px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 8px; backdrop-filter: blur(10px); text-align: left;">
+<div style="height: 100px; background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; text-align: center; padding: 5px; font-size: 11px; text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">Thinking, Fast and Slow</div>
+<div style="font-weight: 600; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text-primary);" title="Thinking, Fast and Slow">Thinking, Fast and Slow</div>
+<div style="font-size: 11px; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Daniel Kahneman</div>
+<div style="display: flex; justify-content: space-between; align-items: center; font-size:
+<truncated 15423 bytes>
+---
+
+
+
+## CHATBOT RESPONSE SYSTEM
+
+
+
+The AI must sound conversational and human-like.
+
+
+
+Examples:
+
+
+
+* “Great choice!”
+
+* “You may enjoy these books.”
+
+* “Here are some trending reads.”
+
+* “These books are highly rated by readers.”
+
+
+
+---
+
+
+
+## ERROR HANDLING
+
+
+
+If database empty:
+
+“Currently no recommendations are available.”
+
+
+
+If search fails:
+
+“Sorry, I couldn't find that book.”
+
+
+
+If invalid query:
+
+Suggest possible commands.
+
+
+
+---
+
+
+
+## ADVANCED FEATURES
+
+
+
+Add:
+
+
+
+* Recently viewed books
+
+* Trending books
+
+* Most borrowed books
+
+* Personalized recommendations
+
+* Quick suggestion chips
+
+
+
+Suggestion chips:
+
+
+
+* Psychology
+
+* Fiction
+
+* Self Help
+
+* Science
+
+* Trending
+
+
+
+---
+
+
+
+## FINAL RESULT REQUIRED
+
+
+
+The chatbot must intelligently answer:
+
+
+
+* general recommendations
+
+* category recommendations
+
+* search queries
+
+* availability checks
+
+* statistics
+
+* member queries
+
+* borrowed books queries
+
+
+
+WITHOUT showing generic fallback errors.
+
+
+
+The chatbot should behave like a professional AI library assistant similar to ChatGPT integrated into a modern futuristic Library Management System.
+
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-29T17:43:36+05:30.
+
+The user's current state is as follows:
+Active Document: e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\app.js (LANGUAGE_JAVASCRIPT)
+Cursor is on line: 323
+Other open documents:
+- e:\W c One Drive\MY THINKING\DBMS\MAIN\library-system-BACKUP-2026-05-11_22-39\backend\server.py (LANGUAGE_PYTHON)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\scratch\get_step80.py (LANGUAGE_PYTHON)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\scratch\dump_tool_calls.py (LANGUAGE_PYTHON)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\scratch\search_text.py (LANGUAGE_PYTHON)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\app.js (LANGUAGE_JAVASCRIPT)
+</ADDITIONAL_METADATA>
+--------------------------------------------------------------------------------
+
+
+## Time: 2026-05-30 22:31:32 | Conversation: f0cca2b9-4b88-4e32-b66c-fb4825d78c82
+<USER_REQUEST>
+# Implementation Plan (Phase 2) - Advanced Admin & Member Features
+
+This plan outlines the next three enhancements for the Book Matrix system: a **Dynamic Notification Center** in the top navigation, **Chatbot Admin Commands** for voice-like control, and **Interactive Member Profiles** with fine calculations.
+
+---
+
+## Proposed Changes
+
+### 1. Dynamic Notification Center 🔔
+
+We will add a real-time notification drop-panel under the bell icon in `index.html` to alert administrators of important events.
+
+#### [MODIFY] [index.html](file:///e:/W%20c%20One%20Drive/MY%20THINKING/DBMS/library-system-BACKUP-2026-05-11_22-39/frontend/index.html)
+- Replace the static notification bell button with a wrapper containing:
+  - An active notification badge `#notification-badge` that glows neon red if alerts are unread.
+  - A glassmorphic `#notifications-dropdown` panel positioned absolute below the bell icon.
+  - A dynamic list container `#notifications-list` to render items.
+
+#### [MODIFY] [app.js](file:///e:/W%20c%20One%20Drive/MY%20THINKING/DBMS/library-system-BACKUP-2026-05-11_22-39/frontend/app.js)
+- Build a global `initNotifications()` module that:
+  - Dynamically compiles active alerts:
+    - Overdue books fetched from the backend overdue logs.
+    - System backup events retrieved from localStorage logs.
+    - Message feeds.
+  - Displays the active unread badge count in real-time.
+  - Toggles the glassmorphic drop-panel open/close on bell click.
+  - Clears all alerts and hides the glowing neon-red badge when "Mark all read" is clicked.
+
+---
+
+### 2. Chatbot Admin Integration 🤖
+
+We will extend the backend AI assistant chat engine to execute real-time administrative instructions.
+
+#### [MODIFY] [server.py](file:///e:/W%20c%20One%20Drive/MY%20THINKING/DBMS/library-system-BACKUP-2026-05-11_22-39/backend/server.py)
+- Update `process_chat()` with a **Chatbot Admin Command Router**:
+  - **"backup database" / "run backup"**:
+    - Trigger `shutil.copy2` to execute a live SQLite database backup.
+    - Return a co
+<truncated 10675 bytes>
+tch was found in the BOOK MATRIX library database.
+You may want to search for this title in the external digital library:
+Library Genesis (LibGen)
+You can also browse similar books available in our library:
+
+
+A Brief History of Time
+
+
+Cosmos
+
+
+Astrophysics for People in a Hurry
+
+
+
+Rules
+
+
+Always prioritize the local library database.
+
+
+Never redirect users to external sources if the book exists locally.
+
+
+Show the LibGen link only when no relevant local result is available.
+
+
+Continue displaying internal recommendations alongside the external search option.
+
+
+Make the response user-friendly and professional.
+
+
+
+This addition will make the assistant much more useful when your library database doesn't contain the requested book.
+        
+       And even analyze the previous prompts which I've been given and based upon that makes the changes in the code and give me a correct local host so I can just test my website and analyze each and everything which happens admitted to you in my previous prompt
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-30T22:31:32+05:30.
+
+The user's current state is as follows:
+Other open documents:
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\messages.html (LANGUAGE_HTML)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\scratch\search_text.py (LANGUAGE_PYTHON)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\users.html (LANGUAGE_HTML)
+- e:\W c One Drive\MY THINKING\DBMS\MAIN\library-system-BACKUP-2026-05-11_22-39\backend\server.py (LANGUAGE_PYTHON)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\database\schema.sql (LANGUAGE_SQL)
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from None to Gemini 3.5 Flash (Medium). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>
+--------------------------------------------------------------------------------
+
+
+## Time: 2026-05-30 23:00:07 | Conversation: 08a1de1f-3971-43d7-b057-3cd5fdc4b726
+<USER_REQUEST>
+hey did you analysis all this prompt and changed the code??
+
+# Implementation Plan (Phase 2) - Advanced Admin & Member Features
+
+This plan outlines the next three enhancements for the Book Matrix system: a **Dynamic Notification Center** in the top navigation, **Chatbot Admin Commands** for voice-like control, and **Interactive Member Profiles** with fine calculations.
+
+---
+
+## Proposed Changes
+
+### 1. Dynamic Notification Center 🔔
+
+We will add a real-time notification drop-panel under the bell icon in `index.html` to alert administrators of important events.
+
+#### [MODIFY] [index.html](file:///e:/W%20c%20One%20Drive/MY%20THINKING/DBMS/library-system-BACKUP-2026-05-11_22-39/frontend/index.html)
+- Replace the static notification bell button with a wrapper containing:
+  - An active notification badge `#notification-badge` that glows neon red if alerts are unread.
+  - A glassmorphic `#notifications-dropdown` panel positioned absolute below the bell icon.
+  - A dynamic list container `#notifications-list` to render items.
+
+#### [MODIFY] [app.js](file:///e:/W%20c%20One%20Drive/MY%20THINKING/DBMS/library-system-BACKUP-2026-05-11_22-39/frontend/app.js)
+- Build a global `initNotifications()` module that:
+  - Dynamically compiles active alerts:
+    - Overdue books fetched from the backend overdue logs.
+    - System backup events retrieved from localStorage logs.
+    - Message feeds.
+  - Displays the active unread badge count in real-time.
+  - Toggles the glassmorphic drop-panel open/close on bell click.
+  - Clears all alerts and hides the glowing neon-red badge when "Mark all read" is clicked.
+
+---
+
+### 2. Chatbot Admin Integration 🤖
+
+We will extend the backend AI assistant chat engine to execute real-time administrative instructions.
+
+#### [MODIFY] [server.py](file:///e:/W%20c%20One%20Drive/MY%20THINKING/DBMS/library-system-BACKUP-2026-05-11_22-39/backend/server.py)
+- Update `process_chat()` with a **Chatbot Admin Command Router**:
+  - **"backup database" / "run backup"**:
+    - Trigger `shutil.copy2
+<truncated 10450 bytes>
+lay the book normally.
+
+
+If no exact match is found, perform a fuzzy search for similar titles.
+
+
+If similar titles are found, display them.
+
+
+If neither an exact nor similar match exists, provide an external resource suggestion.
+
+
+Example:
+User:
+"Time and Space"
+Assistant:
+No exact match was found in the BOOK MATRIX library database.
+You may want to search for this title in the external digital library:
+Library Genesis (LibGen)
+You can also browse similar books available in our library:
+
+
+A Brief History of Time
+
+
+Cosmos
+
+
+Astrophysics for People in a Hurry
+
+
+
+Rules
+
+
+Always prioritize the local library database.
+
+
+Never redirect users to external sources if the book exists locally.
+
+
+Show the LibGen link only when no relevant local result is available.
+
+
+Continue displaying internal recommendations alongside the external search option.
+
+
+Make the response user-friendly and professional.
+
+
+
+This addition will make the assistant much more useful when your library database doesn't contain the requested book.
+        
+       And even analyze the previous prompts which I've been given and based upon that makes the changes in the code and give me a correct local host so I can just test my website and analyze each and everything which happens admitted to you in my previous prompt
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-30T23:00:07+05:30.
+
+The user's current state is as follows:
+Other open documents:
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\settings.html (LANGUAGE_HTML)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\app.js (LANGUAGE_JAVASCRIPT)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\issue_return.html (LANGUAGE_HTML)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\transactions.html (LANGUAGE_HTML)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\books.html (LANGUAGE_HTML)
+</ADDITIONAL_METADATA>
+--------------------------------------------------------------------------------
+
+
+## Time: 2026-05-30 23:13:51 | Conversation: 08a1de1f-3971-43d7-b057-3cd5fdc4b726
+<USER_REQUEST>
+Add the following section to your existing Anti-Gravity prompt:
+
+
+
+---
+
+
+
+# TASK 6: GLOBAL THEME SYSTEM, VISIBILITY FIXES, ANIMATIONS & PERSISTENT CUSTOMIZATION
+
+
+
+## Issue 1: Text Visibility Problems
+
+
+
+Current Problem:
+
+
+
+In Dark Mode and Light Mode, some menu items, dropdown values, buttons, labels, and navigation links become unreadable because the text color blends into the background.
+
+
+
+Examples:
+
+
+
+* Dashboard
+
+* Books
+
+* Members
+
+* Borrowed Books
+
+* Categories
+
+* Authors
+
+* Publishers
+
+* Reports
+
+* Messages
+
+* Settings Dropdown
+
+* UI Customization Dropdown
+
+
+
+Sometimes the text becomes nearly invisible until the user hovers over it.
+
+
+
+### Required Fix
+
+
+
+Implement an intelligent contrast system.
+
+
+
+Requirements:
+
+
+
+* Text must always be readable.
+
+* Automatically adjust text color based on background.
+
+* Never allow dark text on dark backgrounds.
+
+* Never allow white text on white backgrounds.
+
+* Maintain WCAG accessibility standards.
+
+* Ensure all menu items remain visible even without hovering.
+
+
+
+### Minimum Contrast Rules
+
+
+
+Dark Theme:
+
+
+
+* Primary Text: #FFFFFF
+
+* Secondary Text: #D1D5DB
+
+* Muted Text: #9CA3AF
+
+
+
+Light Theme:
+
+
+
+* Primary Text: #0F172A
+
+* Secondary Text: #334155
+
+* Muted Text: #64748B
+
+
+
+Apply these rules to:
+
+
+
+* Sidebar
+
+* Navbar
+
+* Tables
+
+* Dropdowns
+
+* Settings Pages
+
+* Categories
+
+* Authors
+
+* Publishers
+
+* Reports
+
+* Messages
+
+* Chatbot
+
+* Cards
+
+* Analytics
+
+* Modals
+
+* Forms
+
+* Search Inputs
+
+
+
+No text should ever disappear.
+
+
+
+---
+
+
+
+# Issue 2: Global Theme Application
+
+
+
+Current Problem:
+
+
+
+Changing theme only affects some sections.
+
+
+
+The selected theme must affect the entire application.
+
+
+
+### Required Behavior
+
+
+
+When user selects:
+
+
+
+* Glassmorphism (Default)
+
+* Solid Dark
+
+* Solid Light
+
+
+
+The selected theme must immediately apply to:
+
+
+
+✓ Dashboard
+
+
+
+✓ Books
+
+
+
+✓ Members
+
+
+
+✓ Borrowed Books
+
+
+
+✓ Categories
+
+
+
+✓ Authors
+
+
+
+✓ Publishers
+
+
+
+✓ Reports
+
+
+
+✓ Messages
+
+
+
+✓ Settings
+
+
+
+✓ Chatbot
+
+
+
+✓ Modals
+
+
+
+✓ Forms
+
+
+
+✓ Tabl
+<truncated 1727 bytes>
+oard
+
+* Books
+
+* Members
+
+* Categories
+
+* Reports
+
+* Messages
+
+
+
+Use:
+
+
+
+* Fade + Slide Transition
+
+
+
+Purpose:
+
+
+
+Page Navigation
+
+
+
+---
+
+
+
+### Interaction Animation
+
+
+
+For:
+
+
+
+* Buttons
+
+* Cards
+
+* Books
+
+* Chatbot Actions
+
+* Search Results
+
+
+
+Use:
+
+
+
+* Ripple Effect
+
+* Scale Effect
+
+* Elevation Effect
+
+
+
+Purpose:
+
+
+
+User Interaction
+
+
+
+Do NOT use the same animation style for both.
+
+
+
+Each interaction type must feel unique.
+
+
+
+---
+
+
+
+# Issue 7: Chatbot UI Enhancements
+
+
+
+Improve Library Assistant experience.
+
+
+
+Add:
+
+
+
+* Typing Indicator
+
+* Message Animation
+
+* Smart Suggestions
+
+* Smooth Reply Rendering
+
+* Better Book Cards
+
+* Availability Badge
+
+* Borrow Button Animation
+
+
+
+Assistant should feel like a modern AI product.
+
+
+
+---
+
+
+
+# FINAL REQUIREMENT
+
+
+
+Transform BOOK MATRIX into a premium modern web application with:
+
+
+
+✓ Perfect text visibility
+
+
+
+✓ Global theme synchronization
+
+
+
+✓ Persistent theme storage
+
+
+
+✓ Professional page transitions
+
+
+
+✓ Premium interaction effects
+
+
+
+✓ Fully working dark mode
+
+
+
+✓ Fully working light mode
+
+
+
+✓ Consistent styling across the entire website
+
+
+
+✓ Modern AI chatbot experience
+
+
+
+✓ Responsive and production-ready UI/UX
+
+
+
+Implement directly in the existing codebase without breaking any existing functionality.
+
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-30T23:13:51+05:30.
+
+The user's current state is as follows:
+Other open documents:
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\scratch\read_logs_detail.py (LANGUAGE_PYTHON)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\book_details.html (LANGUAGE_HTML)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\authors.html (LANGUAGE_HTML)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\categories.html (LANGUAGE_HTML)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\style.css (LANGUAGE_CSS)
+</ADDITIONAL_METADATA>
+--------------------------------------------------------------------------------
+
+
+## Time: 2026-05-30 23:16:00 | Conversation: f52c76cf-22a0-4a63-8b19-2d9779cc4574
+<USER_REQUEST>
+He made the things in the program in the code according to the given prompt and give me a better result
+
+Add the following section to your existing Anti-Gravity prompt:
+
+---
+
+# TASK 6: GLOBAL THEME SYSTEM, VISIBILITY FIXES, ANIMATIONS & PERSISTENT CUSTOMIZATION
+
+## Issue 1: Text Visibility Problems
+
+Current Problem:
+
+In Dark Mode and Light Mode, some menu items, dropdown values, buttons, labels, and navigation links become unreadable because the text color blends into the background.
+
+Examples:
+
+* Dashboard
+* Books
+* Members
+* Borrowed Books
+* Categories
+* Authors
+* Publishers
+* Reports
+* Messages
+* Settings Dropdown
+* UI Customization Dropdown
+
+Sometimes the text becomes nearly invisible until the user hovers over it.
+
+### Required Fix
+
+Implement an intelligent contrast system.
+
+Requirements:
+
+* Text must always be readable.
+* Automatically adjust text color based on background.
+* Never allow dark text on dark backgrounds.
+* Never allow white text on white backgrounds.
+* Maintain WCAG accessibility standards.
+* Ensure all menu items remain visible even without hovering.
+
+### Minimum Contrast Rules
+
+Dark Theme:
+
+* Primary Text: #FFFFFF
+* Secondary Text: #D1D5DB
+* Muted Text: #9CA3AF
+
+Light Theme:
+
+* Primary Text: #0F172A
+* Secondary Text: #334155
+* Muted Text: #64748B
+
+Apply these rules to:
+
+* Sidebar
+* Navbar
+* Tables
+* Dropdowns
+* Settings Pages
+* Categories
+* Authors
+* Publishers
+* Reports
+* Messages
+* Chatbot
+* Cards
+* Analytics
+* Modals
+* Forms
+* Search Inputs
+
+No text should ever disappear.
+
+---
+
+# Issue 2: Global Theme Application
+
+Current Problem:
+
+Changing theme only affects some sections.
+
+The selected theme must affect the entire application.
+
+### Required Behavior
+
+When user selects:
+
+* Glassmorphism (Default)
+* Solid Dark
+* Solid Light
+
+The selected theme must immediately apply to:
+
+✓ Dashboard
+
+✓ Books
+
+✓ Members
+
+✓ Borrowed Books
+
+✓ Categories
+
+✓ Authors
+
+✓ Publishers
+
+✓ Reports
+
+✓ Messages
+
+✓ Settings
+
+✓ Chatbot
+
+✓ Modals
+
+✓ Forms
+
+✓ Tables
+
+✓ Analytics
+<truncated 1778 bytes>
+Results
+
+Use:
+
+* Ripple Effect
+* Scale Effect
+* Elevation Effect
+
+Purpose:
+
+User Interaction
+
+Do NOT use the same animation style for both.
+
+Each interaction type must feel unique.
+
+---
+
+# Issue 7: Chatbot UI Enhancements
+
+Improve Library Assistant experience.
+
+Add:
+
+* Typing Indicator
+* Message Animation
+* Smart Suggestions
+* Smooth Reply Rendering
+* Better Book Cards
+* Availability Badge
+* Borrow Button Animation
+
+Assistant should feel like a modern AI product.
+
+---
+
+# FINAL REQUIREMENT
+
+Transform BOOK MATRIX into a premium modern web application with:
+
+✓ Perfect text visibility
+
+✓ Global theme synchronization
+
+✓ Persistent theme storage
+
+✓ Professional page transitions
+
+✓ Premium interaction effects
+
+✓ Fully working dark mode
+
+✓ Fully working light mode
+
+✓ Consistent styling across the entire website
+
+✓ Modern AI chatbot experience
+
+✓ Responsive and production-ready UI/UX
+
+Implement directly in the existing codebase without breaking any existing functionality.
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-05-30T23:16:00+05:30.
+
+The user's current state is as follows:
+Other open documents:
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\scratch\search_text.py (LANGUAGE_PYTHON)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\settings.html (LANGUAGE_HTML)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\app.js (LANGUAGE_JAVASCRIPT)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\issue_return.html (LANGUAGE_HTML)
+- e:\W c One Drive\MY THINKING\DBMS\library-system-BACKUP-2026-05-11_22-39\frontend\transactions.html (LANGUAGE_HTML)
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from None to Gemini 3.5 Flash (Medium). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>
+--------------------------------------------------------------------------------
+
