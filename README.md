@@ -2,7 +2,6 @@
 
 Welcome to **Book Matrix**! This is a state-of-the-art, responsive, and beautiful Library Management System (LMS) designed to transition traditional paper-based libraries into a high-tech digital workspace. Built with clean, modern aesthetics (using glassmorphism) and integrated with Google's Gemini Artificial Intelligence, Book Matrix makes managing book inventories, tracking members, and issuing/returning books extremely easy and interactive.
 
-Repository: [https://github.com/SriniwasAwasthi/Book-Matrix-Library-Management-system-](https://github.com/SriniwasAwasthi/Book-Matrix-Library-Management-system-)
 
 ---
 
