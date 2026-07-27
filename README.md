@@ -20,79 +20,79 @@ Imagine you are running a school or public library. Instead of writing checkouts
 Below are real screenshots captured directly from the live application running on localhost, showcasing both Dark and Light visual themes as well as key functional modules:
 
 ### 1. Dark Dashboard (`dark_dashboard.png`)
-![Dark Dashboard](image/dark_dashboard.png)
+![Dark Dashboard](Image/dark_dashboard.png)
 * **Description:** The primary executive overview interface in Dark Mode, displaying key metrics (Total Titles, Total Copies, Registered Members, Active Borrows), dynamic borrowing activity analytics chart, recent borrowing timeline, popular books table, and member distribution breakdown.
 
 ---
 
 ### 2. Light Mode Dashboard (`light_mode_dashboard.png`)
-![Light Mode Dashboard](image/light_mode_dashboard.png)
+![Light Mode Dashboard](Image/light_mode_dashboard.png)
 * **Description:** The full system dashboard styled in Light Mode, featuring clean glassmorphic cards, crisp data visualizer charts, and light accent styling.
 
 ---
 
 ### 3. Dark Books Inventory (`dark_books_inventory.png`)
-![Dark Books Inventory](image/dark_books_inventory.png)
+![Dark Books Inventory](Image/dark_books_inventory.png)
 * **Description:** The complete catalog management view listing all registered books with details such as Title, Author, Category badge, Publisher, Stock availability ratio, and action controls to edit or manage titles.
 
 ---
 
 ### 4. Dark Library Members (`dark_library_members.png`)
-![Dark Library Members](image/dark_library_members.png)
+![Dark Library Members](Image/dark_library_members.png)
 * **Description:** The member administration portal showing registered library users, contact details (email and phone), membership roles, registration dates, and active status indicators.
 
 ---
 
 ### 5. Dark Borrowed Books Management (`dark_borrowed_books_management.png`)
-![Dark Borrowed Books Management](image/dark_borrowed_books_management.png)
+![Dark Borrowed Books Management](Image/dark_borrowed_books_management.png)
 * **Description:** The transaction desk interface divided into two action panels: issuing a new book to a member with return due dates, and processing returned books by Transaction ID.
 
 ---
 
 ### 6. Dark Book Categories (`dark_book_categories.png`)
-![Dark Book Categories](image/dark_book_categories.png)
+![Dark Book Categories](Image/dark_book_categories.png)
 * **Description:** Grid collection of literary categories (Business, Fiction, Finance, Health & Wellness, History, Philosophy, Psychology, Science, Self Help, Technology) with direct collection filtering links.
 
 ---
 
 ### 7. Dark Book Authors (`dark_book_authors.png`)
-![Dark Book Authors](image/dark_book_authors.png)
+![Dark Book Authors](Image/dark_book_authors.png)
 * **Description:** Dedicated author directory view organizing renowned writers and author profiles in sleek visual cards with bibliography access.
 
 ---
 
 ### 8. Dark Book Publishers (`dark_book_publishers.png`)
-![Dark Book Publishers](image/dark_book_publishers.png)
+![Dark Book Publishers](Image/dark_book_publishers.png)
 * **Description:** Publisher catalog grid showcasing major publishing houses and imprint information with publication tracking options.
 
 ---
 
 ### 9. Dark Reports & Logs (`dark_reports_and_logs.png`)
-![Dark Reports & Logs](image/dark_reports_and_logs.png)
+![Dark Reports & Logs](Image/dark_reports_and_logs.png)
 * **Description:** The complete historical transaction log table displaying Transaction IDs, Member Names, Book Titles, Issue Dates, Due Dates, Return Dates, and status tags.
 
 ---
 
 ### 10. Dark AI Library Assistant (`dark_ai_library_assistant.png`)
-![Dark AI Library Assistant](image/dark_ai_library_assistant.png)
+![Dark AI Library Assistant](Image/dark_ai_library_assistant.png)
 * **Description:** The intelligent conversational AI chat interface providing instant system guidance, sample queries, and automated database interaction features.
 
 ---
 
 ### 11. Dark AI Assistant Book Search (`dark_ai_assistant_book_search.png`)
-![Dark AI Assistant Book Search](image/dark_ai_assistant_book_search.png)
+![Dark AI Assistant Book Search](Image/dark_ai_assistant_book_search.png)
 * **Description:** Live demonstration of the AI assistant responding to natural language queries like "atomic habits", automatically fetching complete book metadata, rating, price, and availability status from SQLite.
 
 ---
 
 ### 12. Dark AI Assistant Queries (`dark_ai_assistant_queries.png`)
-![Dark AI Assistant Queries](image/dark_ai_assistant_queries.png)
+![Dark AI Assistant Queries](Image/dark_ai_assistant_queries.png)
 * **Description:** Interactive AI assistant answering database statistic questions ("How many books are available?") and general knowledge questions seamlessly within the application.
 
 ---
 
 ### 13. Dark System Settings (`dark_system_settings.png`)
-![Dark System Settings](image/dark_system_settings.png)
+![Dark System Settings](Image/dark_system_settings.png)
 * **Description:** Comprehensive control panel for managing administrator profiles, profile avatars, security & privacy settings, notification preferences, database backup/restore operations, and UI customizations.
 
 ---
