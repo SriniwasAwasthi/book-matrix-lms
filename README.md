@@ -7,6 +7,7 @@
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/)
 [![C](https://img.shields.io/badge/C-Language-A8B9CC?style=for-the-badge&logo=c&logoColor=white)](https://en.wikipedia.org/wiki/C_(programming_language))
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sriniwas-awasthi/)
 
 **An intelligent, multi-language Library Management System built with Python, SQLite, HTML5/CSS3, and C acceleration, automating inventory management, circulation tracking, and AI research queries.**
 
@@ -19,22 +20,56 @@
 Below are screenshots captured directly from the live application, showcasing both Dark and Light visual themes as well as key functional modules:
 
 ### 1. 🌙 Home & Analytics Dashboard (Dark Theme)
-![Home Dashboard Dark](./images/Dashboard-dark.png)
+![Home Dashboard Dark](Image/dark_dashboard.png)
+*Executive overview interface in Dark Mode displaying key metrics, dynamic borrowing activity charts, popular books breakdown, and member distribution.*
+
+---
 
 ### 2. ☀️ Home & Analytics Dashboard (Light Theme)
-![Home Dashboard Light](./images/Dashboard-light.png)
+![Home Dashboard Light](Image/light_mode_dashboard.png)
+*Full system dashboard styled in Light Mode with high-contrast glassmorphic cards and crisp data visualizers.*
+
+---
 
 ### 3. 📚 Book Catalog Management
-![Book Catalog Management](./images/Book%20Management.png)
+![Book Catalog Management](Image/dark_books_inventory.png)
+*Complete inventory management view displaying titles, authors, categories, publishers, and real-time stock availability ratios.*
+
+---
 
 ### 4. 👥 Member & User Directory
-![Member Management](./images/User%20Management.png)
+![Member Management](Image/dark_library_members.png)
+*User administration portal managing registered students, teachers, contact info, membership tiers, and borrowing privileges.*
+
+---
 
 ### 5. 🔄 Issue & Return Circulation Terminal
-![Circulation Terminal](./images/Issue%20&%20Return.png)
+![Circulation Terminal](Image/dark_borrowed_books_management.png)
+*Real-time desk circulation panel for issuing books with return deadlines and processing check-ins with automated fine calculation.*
+
+---
 
 ### 6. 🧠 AI Research & Inquiry Terminal
-![AI Assistant Terminal](./images/Ai%20Assistence.png)
+![AI Assistant Terminal](Image/dark_ai_library_assistant.png)
+*Intelligent conversational AI assistant providing system guidance, instant book synopsis retrieval, and database interactions.*
+
+---
+
+### 7. 🔍 Natural Language AI Book Search
+![AI Assistant Book Search](Image/dark_ai_assistant_book_search.png)
+*AI assistant resolving conversational queries to fetch book metadata, ratings, pricing, and availability from SQLite.*
+
+---
+
+### 8. 📊 Historical Circulation Logs & Reports
+![Reports and Logs](Image/dark_reports_and_logs.png)
+*Comprehensive historical audit log tracking transaction IDs, member names, issue dates, due dates, and return statuses.*
+
+---
+
+### 9. ⚙️ System Settings & Administration
+![System Settings](Image/dark_system_settings.png)
+*Administrative control panel for managing security preferences, profile customization, and database backup operations.*
 
 ---
 
