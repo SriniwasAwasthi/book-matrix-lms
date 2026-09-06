@@ -2,7 +2,6 @@
 
 Welcome to **Book Matrix**! This is a state-of-the-art, responsive, and beautiful Library Management System (LMS) designed to transition traditional paper-based libraries into a high-tech digital workspace. Built with clean, modern aesthetics (using glassmorphism) and integrated with Google's Gemini Artificial Intelligence, Book Matrix makes managing book inventories, tracking members, and issuing/returning books extremely easy and interactive.
 
-
 ---
 
 ## 📖 How the System Works (For Everyone!)
@@ -96,6 +95,16 @@ Below are real screenshots captured directly from the live application running o
 
 ---
 
+## 🏛️ System Architecture
+
+```mermaid
+graph LR
+    Web["🌐 Web Interface (HTML/CSS/JS)"] --> Backend["🐍 Python Server Layer"]
+    Backend --> SQLite[("🗄️ SQLite Database")]
+    Backend --> AI["🧠 AI Book Search & Research Assistant"]
+    Backend --> CMod["⚡ C Performance Acceleration Module"]
+```
+
 ## 🛠️ Technology Stack & Languages Used
 We use different programming languages, each doing a specific job:
 
@@ -112,15 +121,6 @@ We use different programming languages, each doing a specific job:
 
 ## 🧠 Step-by-Step Architecture & AI Integration
 Book Matrix splits operations between client-side user actions and backend processing:
-
-```mermaid
-graph TD
-    User([User in Chrome]) -->|Click / Chat| Frontend[Frontend: JS & CSS]
-    Frontend -->|HTTP Requests| PythonServer[Python backend: server.py]
-    PythonServer -->|SQL Queries| SQLiteDB[(SQLite DB: library.db)]
-    PythonServer -->|Tool Calling| GeminiAI[Gemini 2.5 Flash API]
-    CModule[C CGI module: api.c] -->|MySQL Queries| MySQLDB[(MySQL DB)]
-```
 
 ### 1. Backend Endpoints (API Paths)
 - **`GET /api?action=dashboard`:** Aggregates statistics (total books, copies, active loans, overdue books).
@@ -188,19 +188,16 @@ I hope you find something useful, inspiring, or insightful here, and I wish you 
 
 ---
 
-## 💖 Thank You for Visiting Book Matrix!
-
-> *"Modernizing library operations with hybrid systems & AI assistance."* 📚
-
-Thank you for taking your valuable time to inspect Book Matrix! Combining Python, SQLite, HTML/CSS, JS, and C into an automated, AI-assisted library management system taught me so much about multi-tier architectures, data integrity, and automated circulation. Your review means a tremendous amount.
-
-- 🌟 **Found the library system and database architecture solid?** Please consider leaving a star!
-- 📬 **Let's Connect:** I welcome all conversations regarding database design, systems programming, and AI integration. Reach out on [GitHub](https://github.com/SriniwasAwasthi).
-
-*May your reading list always be full and your knowledge ever-expanding!* ✨
-
 ---
 
+## 💖 Thank You for Visiting & Exploring 🚀 Book Matrix - The Future of Library Management!
+
+> *"Thank you for taking the time to explore this project! Continuous learning, clean craftsmanship, and solving real-world challenges through elegant software are at the core of my developer journey."* 🚀
+
+* 🌟 **Enjoyed this project?** If you found this repository interesting or helpful, please consider giving it a **Star**!
+* 📬 **Let's Connect & Collaborate:** I am actively seeking engineering opportunities, impactful internships, and open-source collaborations. Feel free to connect via [GitHub](https://github.com/SriniwasAwasthi) or [Email](mailto:sriawasthi164@gmail.com).
+
+---
 <div align="center">
-  <sub>Engineered for library management excellence by <a href="https://github.com/SriniwasAwasthi">Sriniwas Awasthi</a>.</sub>
+  <sub>Designed & Crafted with Passion by <a href="https://github.com/SriniwasAwasthi"><strong>Sriniwas Awasthi</strong></a> • Continuous Learner & Software Engineer</sub>
 </div>
