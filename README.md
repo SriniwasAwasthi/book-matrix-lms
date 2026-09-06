@@ -15,7 +15,7 @@ Imagine you are running a school or public library. Instead of writing checkouts
 
 ## 🖼️ User Interface Showcase (Screenshots)
 
-Below are real screenshots captured directly from the live application running on localhost, showcasing both Dark and Light visual themes as well as key functional modules:
+Below are real screenshots captured directly from the live application showcasing both Dark and Light visual themes as well as key functional modules:
 
 ### 1. Dark Dashboard (`dark_dashboard.png`)
 ![Dark Dashboard](Image/dark_dashboard.png)
