@@ -117,6 +117,74 @@ Open your browser to the local development server address shown in your terminal
 
 ---
 
+
+---
+
+## 🗄️ Database Architecture & Entity-Relationship (ER) Schema
+
+The persistence layer is structured to handle high-throughput circulation operations, AI semantic search caching, and fine management with complete referential integrity.
+
+```mermaid
+erDiagram
+    USERS ||--o{ CIRCULATION_LOGS : performs
+    USERS ||--o{ AI_INQUIRY_CACHE : submits
+    BOOKS ||--o{ CIRCULATION_LOGS : tracked_by
+    AUTHORS ||--o{ BOOKS : writes
+    CATEGORIES ||--o{ BOOKS : classifies
+
+    USERS {
+        int user_id PK "Primary Key"
+        string full_name "Member Full Name"
+        string email UK "Unique Email Address"
+        string member_role "Admin | Faculty | Student"
+        datetime created_at "Registration Timestamp"
+        string status "Active | Suspended"
+    }
+
+    BOOKS {
+        int book_id PK "Primary Key"
+        string isbn UK "Unique 13-digit ISBN"
+        string title "Title of the Publication"
+        int author_id FK "References AUTHORS(author_id)"
+        int category_id FK "References CATEGORIES(category_id)"
+        int total_copies "Total Inventory"
+        int available_copies "Currently On Shelf"
+        string shelf_location "Physical Bay / Rack Code"
+    }
+
+    AUTHORS {
+        int author_id PK "Primary Key"
+        string name "Author Name"
+        string biography "Author Details"
+    }
+
+    CATEGORIES {
+        int category_id PK "Primary Key"
+        string category_name "Genre / Topic"
+        string dewey_decimal_code "Classification Code"
+    }
+
+    CIRCULATION_LOGS {
+        int transaction_id PK "Transaction Record ID"
+        int user_id FK "Borrower ID"
+        int book_id FK "Borrowed Book ID"
+        datetime issue_date "Timestamp of Checkout"
+        datetime due_date "Expected Return Timestamp"
+        datetime return_date "Actual Return Timestamp"
+        decimal fine_amount "Overdue Penalty Accrued"
+        string transaction_status "Issued | Returned | Overdue"
+    }
+
+    AI_INQUIRY_CACHE {
+        int query_id PK "Query ID"
+        int user_id FK "Inquiring Member ID"
+        text natural_language_prompt "User NL Prompt"
+        text structured_sql_response "Generated SQL / Vector Context"
+        float query_execution_ms "Latency in ms"
+        datetime queried_at "Query Timestamp"
+    }
+```
+
 ## 📜 License
 
 Distributed under the **MIT License**.
